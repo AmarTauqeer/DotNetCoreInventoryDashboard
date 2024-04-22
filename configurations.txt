@@ -1,0 +1,2 @@
+user=amar.tauqeer@gmail.com
+pass=Admin@pass123

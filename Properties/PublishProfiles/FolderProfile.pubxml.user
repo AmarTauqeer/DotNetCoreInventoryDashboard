@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>Z:\DotnetProject\Web\EmployeeMangement\deployment</_PublishTargetUrl>
+    <History>True|2024-04-21T17:13:04.4117127Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
