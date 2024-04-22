@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DotNetCoreInventoryDashboard.dtos.Employee;
 using DotNetCoreInventoryDashboard.models;
+using DotNetCoreInventoryDashboard.dtos.Employee;
 
 namespace DotNetCoreInventoryDashboard.Mappers
 {

@@ -69,6 +69,9 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProduct, ProductRepository>();
+
 
 var app = builder.Build();
 

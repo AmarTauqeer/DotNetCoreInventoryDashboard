@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetCoreInventoryDashboard.dtos.Employee;
+using DotNetCoreInventoryDashboard.dtos.Product;
 using DotNetCoreInventoryDashboard.interfaces;
 using DotNetCoreInventoryDashboard.models;
 using Microsoft.EntityFrameworkCore;
@@ -65,5 +66,7 @@ namespace DotNetCoreInventoryDashboard.repository
             await _employeeContextDB.SaveChangesAsync();
             return employee;
         }
+
+  
     }
 }
