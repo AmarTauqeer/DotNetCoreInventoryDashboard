@@ -595,7 +595,7 @@ namespace DotNetCoreInventoryDashboard.Migrations
                         .HasForeignKey("ProductId");
 
                     b.HasOne("DotNetCoreInventoryDashboard.models.SaleMaster", "SaleMaster")
-                        .WithMany()
+                        .WithMany("SaleDetails")
                         .HasForeignKey("SaleMasterId");
 
                     b.Navigation("Product");
@@ -671,6 +671,11 @@ namespace DotNetCoreInventoryDashboard.Migrations
             modelBuilder.Entity("DotNetCoreInventoryDashboard.models.Department", b =>
                 {
                     b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("DotNetCoreInventoryDashboard.models.SaleMaster", b =>
+                {
+                    b.Navigation("SaleDetails");
                 });
 #pragma warning restore 612, 618
         }

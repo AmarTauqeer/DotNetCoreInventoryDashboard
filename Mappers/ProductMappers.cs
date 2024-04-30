@@ -1,5 +1,4 @@
-﻿using DotNetCoreInventoryDashboard.dtos.Category;
-using DotNetCoreInventoryDashboard.models;
+﻿using DotNetCoreInventoryDashboard.models;
 using DotNetCoreInventoryDashboard.dtos.Product;
 namespace DotNetCoreInventoryDashboard.Mappers
 {
@@ -16,6 +15,7 @@ namespace DotNetCoreInventoryDashboard.Mappers
                 PurchaseRate = product.PurchaseRate,
                 SaleRate = product.SaleRate,
                 ImagePath = product.ImagePath,
+                Description = product.Description,
             };
 
         }
@@ -30,6 +30,7 @@ namespace DotNetCoreInventoryDashboard.Mappers
                 PurchaseRate=createUpdateProductDto.PurchaseRate,
                 SaleRate=createUpdateProductDto.SaleRate,
                 ImagePath=createUpdateProductDto.ImagePath,
+                Description = createUpdateProductDto.Description,
             };
         }
     }

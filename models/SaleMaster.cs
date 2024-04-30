@@ -12,5 +12,6 @@ namespace DotNetCoreInventoryDashboard.models
 
         public int? CustomerId { get; set; }
         public Customer? Customer { get; set; }
+        public List<SaleDetail> SaleDetails { get; set; } = new List<SaleDetail>();
     }
 }

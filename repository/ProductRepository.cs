@@ -13,7 +13,7 @@ namespace DotNetCoreInventoryDashboard.repository
         {
             await _db.Products.AddAsync(product);
             await _db.SaveChangesAsync();
-            return product; ;
+            return product;
         }
 
         public async Task<Product?> DeleteAsync(int id)
@@ -47,6 +47,7 @@ namespace DotNetCoreInventoryDashboard.repository
             }
             product.ProductId = id;
             product.Name = createUpdateProductDto.Name;
+            product.Description = createUpdateProductDto.Description;
             product.CreateAt = createUpdateProductDto.CreateAt;
             product.CategoryId=createUpdateProductDto.CategoryId;
             product.PurchaseRate = createUpdateProductDto.PurchaseRate;

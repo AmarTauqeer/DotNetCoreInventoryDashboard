@@ -71,7 +71,11 @@ builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.AddScoped<IProduct, ProductRepository>();
+builder.Services.AddScoped<ISupplier, SupplierRepository>();
+builder.Services.AddScoped<ICustomer, CustomerRepository>();
 
+builder.Services.AddScoped<ISaleMaster, SaleMasterRepository>();
+builder.Services.AddScoped<ISaleDetail, SaleDetailRepository>();
 
 var app = builder.Build();
 

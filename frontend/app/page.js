@@ -10,7 +10,7 @@ export default function Login() {
   const url = process.env.NEXT_PUBLIC_URL;
   const router = useRouter();
   const [email, setEmail] = useState("amar.tauqeer@gmail.com");
-  const [password, setPassword] = useState("Amar@786");
+  const [password, setPassword] = useState("Admin@pass123");
   const [message, setMessage] = useState("");
   const [user, setUser] = useState([]);
 
@@ -61,12 +61,13 @@ export default function Login() {
   }, []);
 
   return (
+
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col text-center items-center justify-center h-screen">
         <div className="bg-white rounded-2xl shadow-2xl flex">
           <div className="w-64 md:w-[450px] p-5">
             <div className="text-left font-bold ml-6 md:ml-0">
-              <span className="text-green-500">Employee</span>Management
+              <span className="text-green-500">Inventory</span>Management
             </div>
             <div className="py-12">
               <h2 className="text-sm uppercase md:text-2xl font-bold text-green-500 mb-1">

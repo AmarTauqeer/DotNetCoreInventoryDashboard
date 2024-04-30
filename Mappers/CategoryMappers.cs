@@ -1,6 +1,5 @@
 ﻿using DotNetCoreInventoryDashboard.dtos.Category;
 using DotNetCoreInventoryDashboard.models;
-using DotNetCoreInventoryDashboard.dtos.Product;
 namespace DotNetCoreInventoryDashboard.Mappers
 {
     public static class CategoryMappers

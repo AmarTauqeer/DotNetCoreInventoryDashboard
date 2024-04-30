@@ -1,13 +1,5 @@
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\web.config
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\appsettings.Development.json
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\appsettings.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\appsettings.Development.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\appsettings.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\EmployeeMangement.deps.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\EmployeeMangement.runtimeconfig.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\frontend\jsconfig.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\frontend\package-lock.json
-Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\deployment\frontend\package.json
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\frontend\jsconfig.json
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\frontend\package-lock.json
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0\frontend\package.json
