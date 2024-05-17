@@ -9,7 +9,7 @@ namespace DotNetCoreInventoryDashboard.Mappers
         {
             return new SaleDetailDto
             {
-
+                SaleDetailId=saleDetail.SaleDetailId,
                 SaleMasterId = saleDetail.SaleMasterId,
                 ProductId= saleDetail.ProductId,
                 Qty = saleDetail.Qty,

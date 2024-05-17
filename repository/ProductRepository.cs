@@ -1,8 +1,11 @@
-﻿using DotNetCoreInventoryDashboard.dtos.Category;
+﻿using AspNetCore.Reporting;
+using DotNetCoreInventoryDashboard.dtos.Category;
 using DotNetCoreInventoryDashboard.dtos.Product;
 using DotNetCoreInventoryDashboard.interfaces;
 using DotNetCoreInventoryDashboard.models;
 using Microsoft.EntityFrameworkCore;
+using Model;
+using System.Text;
 
 namespace DotNetCoreInventoryDashboard.repository
 {
@@ -14,6 +17,26 @@ namespace DotNetCoreInventoryDashboard.repository
             await _db.Products.AddAsync(product);
             await _db.SaveChangesAsync();
             return product;
+        }
+
+        public byte[] CreateReportFile(string pathRdlc)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            LocalReport report = new LocalReport(pathRdlc);
+            //List<Class1> l = new List<Class1>();
+            //l.Add(new Class1
+            //{
+            //    FirstName = "mathus",
+            //    LastName = "nakpansua",
+            //    Email = "mathus057@gmail.com",
+            //    Phone = "0839999999"
+            //});
+            List<Product> products= _db.Products.ToList();
+
+            report.AddDataSource("dsProduct", products);
+            var result = report.Execute(RenderType.Pdf, 1);
+            return result.MainStream;
+
         }
 
         public async Task<Product?> DeleteAsync(int id)

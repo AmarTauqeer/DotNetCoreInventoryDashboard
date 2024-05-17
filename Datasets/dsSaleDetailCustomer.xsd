@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSaleDetailCustomer" targetNamespace="http://tempuri.org/dsSaleDetailCustomer.xsd" xmlns:mstns="http://tempuri.org/dsSaleDetailCustomer.xsd" xmlns="http://tempuri.org/dsSaleDetailCustomer.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=Amar;Initial Catalog=DotNetCoreInventoryDashboardDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="amar.DotNetCoreInventoryDashboardDB.dbo" ParameterPrefix="@" Provider="Microsoft.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleDetailViewTableAdapter" GeneratorDataComponentClassName="SaleDetailViewTableAdapter" Name="SaleDetailView" UserDataComponentName="SaleDetailViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="amar.DotNetCoreInventoryDashboardDB.dbo" DbObjectName="DotNetCoreInventoryDashboardDB.dbo.SaleDetailView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        customerName, qty, rate, amountPerProduct, productName, categoryName, amount, date, id
+FROM            SaleDetailView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="customerName" DataSetColumn="customerName" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+              <Mapping SourceColumn="rate" DataSetColumn="rate" />
+              <Mapping SourceColumn="amountPerProduct" DataSetColumn="amountPerProduct" />
+              <Mapping SourceColumn="productName" DataSetColumn="productName" />
+              <Mapping SourceColumn="categoryName" DataSetColumn="categoryName" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSaleDetailCustomer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsSaleDetailCustomer" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSaleDetailCustomer">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SaleDetailView" msprop:Generator_RowClassName="SaleDetailViewRow" msprop:Generator_RowEvHandlerName="SaleDetailViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SaleDetailViewRowDeleted" msprop:Generator_RowDeletingName="SaleDetailViewRowDeleting" msprop:Generator_RowEvArgName="SaleDetailViewRowChangeEvent" msprop:Generator_TablePropName="SaleDetailView" msprop:Generator_RowChangedName="SaleDetailViewRowChanged" msprop:Generator_UserTableName="SaleDetailView" msprop:Generator_RowChangingName="SaleDetailViewRowChanging" msprop:Generator_TableClassName="SaleDetailViewDataTable" msprop:Generator_TableVarName="tableSaleDetailView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerName" msprop:Generator_UserColumnName="customerName" msprop:Generator_ColumnPropNameInTable="customerNameColumn" msprop:Generator_ColumnPropNameInRow="customerName" msprop:Generator_ColumnVarNameInTable="columncustomerName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qty" msprop:Generator_UserColumnName="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnVarNameInTable="columnqty" type="xs:int" />
+              <xs:element name="rate" msprop:Generator_UserColumnName="rate" msprop:Generator_ColumnPropNameInTable="rateColumn" msprop:Generator_ColumnPropNameInRow="rate" msprop:Generator_ColumnVarNameInTable="columnrate" type="xs:int" />
+              <xs:element name="amountPerProduct" msprop:Generator_UserColumnName="amountPerProduct" msprop:Generator_ColumnPropNameInTable="amountPerProductColumn" msprop:Generator_ColumnPropNameInRow="amountPerProduct" msprop:Generator_ColumnVarNameInTable="columnamountPerProduct" type="xs:int" />
+              <xs:element name="productName" msprop:Generator_UserColumnName="productName" msprop:Generator_ColumnPropNameInTable="productNameColumn" msprop:Generator_ColumnPropNameInRow="productName" msprop:Generator_ColumnVarNameInTable="columnproductName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="categoryName" msprop:Generator_UserColumnName="categoryName" msprop:Generator_ColumnPropNameInTable="categoryNameColumn" msprop:Generator_ColumnPropNameInRow="categoryName" msprop:Generator_ColumnVarNameInTable="columncategoryName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnVarNameInTable="columnamount" type="xs:int" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnVarNameInTable="columndate" type="xs:dateTime" />
+              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SaleDetailView" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

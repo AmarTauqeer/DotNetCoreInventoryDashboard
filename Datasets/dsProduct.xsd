@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="products" targetNamespace="http://tempuri.org/products.xsd" xmlns:mstns="http://tempuri.org/products.xsd" xmlns="http://tempuri.org/products.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=Amar;Initial Catalog=DotNetCoreInventoryDashboardDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="amar.DotNetCoreInventoryDashboardDB.dbo" ParameterPrefix="@" Provider="Microsoft.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductsTableAdapter" GeneratorDataComponentClassName="ProductsTableAdapter" Name="Products" UserDataComponentName="ProductsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="amar.DotNetCoreInventoryDashboardDB.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Products.Name, Products.Description, Products.PurchaseRate, Products.SaleRate, Products.CreateAt, Products.ProductId, Categories.Name AS Category
+FROM            Products INNER JOIN
+                         Categories ON Products.CategoryId = Categories.CategoryId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="PurchaseRate" DataSetColumn="PurchaseRate" />
+              <Mapping SourceColumn="SaleRate" DataSetColumn="SaleRate" />
+              <Mapping SourceColumn="CreateAt" DataSetColumn="CreateAt" />
+              <Mapping SourceColumn="ProductId" DataSetColumn="ProductId" />
+              <Mapping SourceColumn="Category" DataSetColumn="Category" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="products" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="products" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="products">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Products" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_TablePropName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchaseRate" msprop:Generator_UserColumnName="PurchaseRate" msprop:Generator_ColumnPropNameInTable="PurchaseRateColumn" msprop:Generator_ColumnPropNameInRow="PurchaseRate" msprop:Generator_ColumnVarNameInTable="columnPurchaseRate" type="xs:int" />
+              <xs:element name="SaleRate" msprop:Generator_UserColumnName="SaleRate" msprop:Generator_ColumnPropNameInTable="SaleRateColumn" msprop:Generator_ColumnPropNameInRow="SaleRate" msprop:Generator_ColumnVarNameInTable="columnSaleRate" type="xs:int" />
+              <xs:element name="CreateAt" msprop:Generator_UserColumnName="CreateAt" msprop:Generator_ColumnPropNameInTable="CreateAtColumn" msprop:Generator_ColumnPropNameInRow="CreateAt" msprop:Generator_ColumnVarNameInTable="columnCreateAt" type="xs:dateTime" />
+              <xs:element name="ProductId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ProductId" msprop:Generator_ColumnPropNameInTable="ProductIdColumn" msprop:Generator_ColumnPropNameInRow="ProductId" msprop:Generator_ColumnVarNameInTable="columnProductId" type="xs:int" />
+              <xs:element name="Category" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_UserColumnName="Category">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Products" />
+      <xs:field xpath="mstns:ProductId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

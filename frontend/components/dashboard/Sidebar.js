@@ -18,13 +18,16 @@ import { BsPersonCircle } from "react-icons/bs";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { useRouter, usePathname } from "next/navigation";
+import { MdInventory } from "react-icons/md";
+import { TbReportSearch } from "react-icons/tb";
+import { CgDetailsMore } from "react-icons/cg";
 
 const Sidebar = () => {
-  const [isOpen, SetIsOpen] = useState(true);
+  const [isOpen, SetIsOpen] = useState(false);
   const [user, setUser] = useState([]);
   const [navState, setNavState] = useState("/");
   const router = useRouter();
-  const pathName=usePathname();
+  const pathName = usePathname();
   const handleLogout = () => {
     localStorage.removeItem("userInfo");
   };
@@ -65,22 +68,30 @@ const Sidebar = () => {
         >
           <div className="m-4 w-[16rem]">
             <div className="font-semibold mb-4 ">
-              {isOpen && <h1 className="uppercase">Gondal Industries Inventory Dashboard</h1>}
+              {isOpen && (
+                <h1 className="uppercase font-black">
+                  Gondal Industries Dashboard
+                </h1>
+              )}
             </div>
+
             {/* <div>{user && <span>{user.name}</span>}</div> */}
             <ul className="list-none">
               {user && user.accessToken ? (
                 <>
-                {/* {console.log(pathName)} */}
-                <hr />
+                  {/* {console.log(pathName)} */}
                   <li>
                     <Link
                       href="/"
-                      className={`${pathName=="/dashboard"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm  rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Dashboard
@@ -95,7 +106,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/category"
-                      className={`${pathName=="/dashboard/category"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/category"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -114,7 +129,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/product"
-                      className={`${pathName=="/dashboard/product"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/product"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -133,7 +152,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/customer"
-                      className={`${pathName=="/dashboard/customer"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/customer"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -152,7 +175,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/supplier"
-                      className={`${pathName=="/dashboard/supplier"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/supplier"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -168,11 +195,14 @@ const Sidebar = () => {
                       {isOpen && <span>Supplier</span>}
                     </Link>
                   </li>
-                  <hr />
                   <li>
                     <Link
-                      href="/dashboard/purchase/purchaseMaster"
-                      className={`${pathName=="/dashboard/purchase/purchaseMaster"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      href="/dashboard/purchase"
+                      className={`${
+                        pathName == "/dashboard/purchase"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -191,7 +221,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/sale"
-                      className={`${pathName=="/dashboard/sale"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/sale"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -207,11 +241,48 @@ const Sidebar = () => {
                       {isOpen && <span>Sale Invoice</span>}
                     </Link>
                   </li>
-                  <hr />
+                  <li>
+                    <Link
+                      href="/dashboard/stock"
+                      className={`${
+                        pathName == "/dashboard/stock"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Stock
+                        </span>
+                        <div className="mr-2">
+                          <MdInventory size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Stock</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <div className="group flex relative">
+                      <span
+                        className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                      >
+                        DETAIL REPORTS
+                      </span>
+                    </div>
+                  </li>
+
                   <li>
                     <Link
                       href="/dashboard/department"
-                      className={`${pathName=="/dashboard/department"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/department"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -230,7 +301,11 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/dashboard/employee"
-                      className={`${pathName=="/dashboard/employee"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/employee"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -246,12 +321,202 @@ const Sidebar = () => {
                       {isOpen && <span>Employee</span>}
                     </Link>
                   </li>
+
                   <hr />
+                  <li>
+                    <Link
+                      href="#"
+                      className={`${
+                        pathName == "#"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm font-semibold text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Reports
+                        </span>
+                        <div className="mr-2">
+                          <TbReportSearch size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span className="font-semibold">Reports</span>}
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      href="/dashboard/category/details"
+                      className={`${
+                        pathName == "/dashboard/category/details"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Category Details
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Category Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/sale/report"
+                      className={`${
+                        pathName == "/dashboard/sale/report"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Sale Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Sale Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/sale/report/customer"
+                      className={`${
+                        pathName == "/dashboard/sale/report/customer"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Customer Wise Sale Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Customer Wise Sale Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/sale/report/product"
+                      className={`${
+                        pathName == "/dashboard/sale/report/product"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Product Wise Sale Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Product Wise Sale Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/purchase/report"
+                      className={`${
+                        pathName == "/dashboard/purchase/report"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Purchase Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Purchase Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/purchase/report/supplier"
+                      className={`${
+                        pathName == "/dashboard/purchase/report/supplier"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Supplier Wise Sale Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Supplier Wise Purchase Details</span>}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/dashboard/purchase/report/product"
+                      className={`${
+                        pathName == "/dashboard/purchase/report/product"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
+                    >
+                      <div className="group flex relative">
+                        <span
+                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+                        >
+                          Product Wise Purchase Detail
+                        </span>
+                        <div className="mr-2">
+                          <CgDetailsMore size={20} />
+                        </div>
+                      </div>
+                      {isOpen && <span>Product Wise Purchase Details</span>}
+                    </Link>
+                  </li>
                   <li>
                     <a
                       onClick={() => handleLogout()}
                       href="/logout"
-                      className={`${pathName=="/dashboard/logout"?"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white":"flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"}`}
+                      className={`${
+                        pathName == "/dashboard/logout"
+                          ? "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md bg-black text-white"
+                          : "flex items-center text-sm decoration-0 py-2 px-2 mb-1 rounded-md"
+                      }`}
                     >
                       <div className="group flex relative">
                         <span
@@ -265,89 +530,18 @@ const Sidebar = () => {
                             src={LoginOutIcon}
                             width={20}
                             height={20}
-                            alt="login"
+                            alt="logout"
                           />
                         </div>
                       </div>
                       {isOpen && <span>Logout</span>}
                     </a>
-                    {/* <div
-                      className="flex items-center text-sm decoration-0 py-2 px-2 bg-[#f3f4f6] mb-1 rounded-md hover:bg-cyan-600 hover:text-cyan-200"
-                      onClick={handleLogout}
-                    >
-                      <div className="group flex relative">
-                        <span
-                          className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
-    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
-                          onClick={() => handleLogout}
-                        >
-                          Logout
-                        </span>
-                        <div className="mr-2">
-                          <Image
-                            src={LoginOutIcon}
-                            width={20}
-                            height={20}
-                            alt="logout"
-                            onClick={handleLogout}
-                          />
-                        </div>
-
-                        {isOpen && (
-                          <span >Logout</span>
-                        )}
-                      </div>
-                    </div> */}
+                    {}
                   </li>
                   <hr />
                 </>
               ) : (
                 ""
-    //             <>
-    //               <li>
-    //                 <Link
-    //                   href="/"
-    //                   className="flex items-center text-sm decoration-0 py-2 px-2 bg-[#f3f4f6] mb-1 rounded-md hover:bg-cyan-600 hover:text-cyan-200"
-    //                 >
-    //                   <div className="group flex relative">
-    //                     <span
-    //                       className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
-    // -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
-    //                     >
-    //                       Login
-    //                     </span>
-    //                     <div className="mr-2">
-    //                       <Image
-    //                         src={LoginIcon}
-    //                         width={20}
-    //                         height={20}
-    //                         alt="login"
-    //                       />
-    //                     </div>
-    //                   </div>
-    //                   {isOpen && <span>Login</span>}
-    //                 </Link>
-    //               </li>
-    //               <li>
-    //                 <Link
-    //                   href="/"
-    //                   className="flex items-center text-sm decoration-0 py-2 px-2 bg-[#f3f4f6] mb-1 rounded-md hover:bg-cyan-600 hover:text-cyan-200"
-    //                 >
-    //                   <div className="group flex relative">
-    //                     <span
-    //                       className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
-    // -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
-    //                     >
-    //                       Register
-    //                     </span>
-    //                     <div className="mr-2">
-    //                       <BsPersonCircle size={20} color="green" />
-    //                     </div>
-    //                   </div>
-    //                   {isOpen && <span>Register</span>}
-    //                 </Link>
-    //               </li>
-    //             </>
               )}
             </ul>
           </div>

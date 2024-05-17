@@ -188,7 +188,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="name"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="Supplier name"
                 {...register("name", {
                   required: true,
@@ -207,7 +207,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="email"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="email"
                 {...register("email", {
                   required: true,
@@ -225,7 +225,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="phone"
                 {...register("phone", {
                   required: false,
@@ -240,7 +240,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="address"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="Address"
                 {...register("address", {
                   required: false,
@@ -248,20 +248,20 @@ const AddEditSupplier = () => {
               />
             </div>
 
-            <span className="font-semibold px-2 py-2 md:px-0 md:my-0">
+            {/* <span className="font-semibold px-2 py-2 md:px-0 md:my-0">
               Postal Code
             </span>
             <div className="flex items-center py-3">
               <input
                 type="text"
                 autoComplete="postalCode"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="postalCode"
                 {...register("postalCode", {
                   required: false,
                 })}
               />
-            </div>
+            </div> */}
 
             <span className="font-semibold px-2 py-2 md:px-0 md:my-0">
               City
@@ -270,7 +270,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="city"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="city"
                 {...register("city", {
                   required: false,
@@ -284,7 +284,7 @@ const AddEditSupplier = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="country"
                 {...register("country", {
                   required: false,

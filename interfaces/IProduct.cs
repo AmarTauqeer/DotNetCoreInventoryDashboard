@@ -10,5 +10,6 @@ namespace DotNetCoreInventoryDashboard.interfaces
         Task<Product> CreateAsync(Product product);
         Task<Product?> UpdateAsync(int id, CreateUpdateProductDto createUpdateProductDto);
         Task<Product?> DeleteAsync(int id);
+        byte[] CreateReportFile(string pathRdlc);
     }
 }

@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import SaleDetailUpdate from "@/components/SaleDetailUpdate";
 import { useParams, useRouter } from "next/navigation";
-// import InvoicePDF from "@/components/InvoicePDF";
 import SaleDetailDtl from "@/components/SaleDetailDtl";
+import InvoicePDF from "@/components/InvoicePDF";
 
 const Detail = (props) => {
   const params = useParams();
@@ -157,7 +157,7 @@ const Detail = (props) => {
                 onChange={setValueDate}
                 value={valueDate}
                 name="createAt"
-                className="py-0 md:py-1 ml-2 md:ml-0 text-xs md:text-sm w-24 md:w-2/3 lg:w-2/3"
+                className="w-full outline-none text-md"
               />
             </div>
 
@@ -165,8 +165,7 @@ const Detail = (props) => {
               <span className="w-24 md:w-48 text-xs md:text-sm">Customer</span>
               <select
                 disabled
-                className="outline-none ml-2 md:ml-0 text-xs md:text-sm flex rounded md:py-1 py-2 shadow-sm ring-1 ring-inset w-48 md:w-2/3 lg:w-2/3 
-                    ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                className="py-3 border border-solid border-gray-700 rounded-lg px-2 w-full outline-none text-md"
                 {...register("customerId", {
                   required: "Customer is required.",
                 })}
@@ -189,27 +188,26 @@ const Detail = (props) => {
 
               <input
                 readOnly
-                className="w-48 md:w-2/3 ml-2 md:ml-0 border border-solid border-gray-700 rounded py-1 px-1 
-                text-sm text-end font-bold outline-none"
+                className="py-3 border border-solid border-gray-700 rounded-lg px-2 w-full outline-none text-md text-end"
                 {...register("saleAmount", {})}
               />
             </div>
             <div className="flex justify-center items-center m-2 mt-8">
               <button
                 type="button"
-                className="bg-slate-300 rounded py-1 px-3 mr-1 hover:bg-slate-800 hover:text-white cursor-pointer text-sm w-24"
+                className="bg-slate-300 rounded py-2 px-3 mr-1 hover:bg-slate-800 hover:text-white cursor-pointer text-sm w-24"
                 onClick={() => router.push("/dashboard/sale")}
               >
                 Close
               </button>
               <div className="flex mb-2">
-                {/* {saleDetailData.length > 0 && (
+                {saleDetailData.length > 0 && (
                   <InvoicePDF
                     data={saleData}
                     id="saleInvoice"
                     detail={saleDetailData}
                   />
-                )} */}
+                )}
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ import { FaFilePdf } from "react-icons/fa";
 const GeneratePDF = (props) => {
   const data = props.data;
   const id = props.id;
+  const sdate=props.sdate;
+  const edate=props.edate;
   // console.log(data);
 
   const generate = () => {
@@ -16,8 +18,8 @@ const GeneratePDF = (props) => {
         doc.text("Inventory Stock List", 14, 10);
         doc.autoTable({
           head: [["PRODUCTID", "PRODUCTNAME", "STOCKQTY"]],
-          body: data.map(({ product_id, product_name, stock_qty }) => {
-            return [product_id, product_name, stock_qty];
+          body: data.map(({ productId, productName, stockQty }) => {
+            return [productId, productName, stockQty];
           }),
         });
         doc.save("stock.pdf");
@@ -42,12 +44,27 @@ const GeneratePDF = (props) => {
       } else if (id === "category") {
         doc.text("Category List", 14, 10);
         doc.autoTable({
-          head: [["ID", "NAME", "DESCRIPTION"]],
-          body: data.map(({ id, name, description }) => {
-            return [id, name, description];
+          head: [["ID", "NAME", "DATE"]],
+          body: data.map(({ categoryId, name, createAt }) => {
+            return [categoryId, name, createAt];
           }),
         });
         doc.save("list_of_category.pdf");
+      }else if (id === "categoryDetails") {
+        doc.setFont("fontWeight","bold")
+        doc.text(`Category Details`, 14, 10);
+        doc.setFontSize(10);
+        doc.setFont("fontWeight","bold")
+        doc.text(`Start date: ${sdate}      End date: ${edate}`, 14, 20);
+
+        doc.autoTable({
+          head: [["ID", "NAME", "DATE"]],
+          body: data.map(({ categoryId, name, createAt }) => {
+            return [categoryId, name, createAt];
+          }),
+          startY:25,
+        });
+        doc.save("category_details.pdf");
       }else if (id === "department") {
         doc.text("Department List", 14, 10);
         doc.autoTable({
@@ -81,14 +98,14 @@ const GeneratePDF = (props) => {
             ],
           ],
           body: data.map(
-            ({ id, name, description, category, purchase_rate, sale_rate }) => {
+            ({ productId, name, description, categoryId, purchaseRate, saleRate }) => {
               return [
-                id,
+                productId,
                 name,
                 description,
-                category,
-                purchase_rate,
-                sale_rate,
+                categoryId,
+                purchaseRate,
+                saleRate,
               ];
             }
           ),

@@ -434,7 +434,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="employeeName"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="employee name"
                 {...register("employeeName", {
                   required: true,
@@ -453,7 +453,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="email"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="email"
                 {...register("email", {
                   required: true,
@@ -471,7 +471,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="phone"
                 {...register("phone", {
                   required: false,
@@ -486,7 +486,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="postalCode"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="postalCode"
                 {...register("postalCode", {
                   required: false,
@@ -501,7 +501,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="city"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="city"
                 {...register("city", {
                   required: false,
@@ -515,7 +515,7 @@ const AddEditEmployee = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 w-60 md:w-[500px]"
                 placeholder="country"
                 {...register("country", {
                   required: false,

@@ -34,23 +34,26 @@ const CategoryList = () => {
       name: "ID#",
       selector: (row) => row.categoryId,
       sortable: true,
-      width: "236px",
+      width: "10%",
     },
     {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "400px",
+      width: "45%",
     },
     {
-      name: "CREATE DATE",
-      selector: (row) => row.createAt,
+      name: "CREATEDATE",
+      selector: (row) => {
+        const event = new Date(row.createAt)
+        return event.toDateString();
+      },
       sortable: true,
-      width: "500px",
+      width: "30%",
     },
     {
       name: "ACTIONS",
-      width: "350px",
+      // width: "50%px",
       selector: (row) => (
         <div className="flex items-center justify-center">
           <div className="d-flex flex-row align-items-center">
@@ -180,7 +183,7 @@ const CategoryList = () => {
             >
               <input
                 type="text"
-                className="py-4 border rounded-lg px-2 w-full outline-none text-lg"
+                className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}
@@ -236,14 +239,13 @@ const CategoryList = () => {
                     onSelectedRowsChange={handleChangeRowsChange}
                     pagination
                     customStyles={CustomStyles}
-                    // highlightOnHover
                     dense
-                    // fixedHeader={!showModal && fixedHeader}
                     fixedHeaderScrollHeight="400px"
                     theme="solarized"
                     progressPending={isLoading}
+                    responsive={true}
                   />
-                </div>
+                  </div>
               ) : (
                 "There are no records to display"
               )}

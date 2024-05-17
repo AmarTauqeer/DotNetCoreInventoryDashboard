@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "f4vJBsk+e4MXPmNyc6EOjCowKoHHvde7W1IkypnOOsI=",
+  "Source": "DotNetCoreInventoryDashboard",
+  "BasePath": "_content/DotNetCoreInventoryDashboard",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

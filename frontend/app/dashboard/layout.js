@@ -4,10 +4,10 @@ import React from "react";
 const Layout = ({ children }) => {
   return (
     <div className="flex">
-      <div className="col">
+      <div className="flex flex-col">
         <Sidebar />
       </div>
-      <div className="col p-5">{children}</div>
+      <div className="flex flex-col px-5 py-1 w-full">{children}</div>
     </div>
   );
 };

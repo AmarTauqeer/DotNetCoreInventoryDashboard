@@ -77,6 +77,9 @@ builder.Services.AddScoped<ICustomer, CustomerRepository>();
 builder.Services.AddScoped<ISaleMaster, SaleMasterRepository>();
 builder.Services.AddScoped<ISaleDetail, SaleDetailRepository>();
 
+builder.Services.AddScoped<IPurchaseMaster, PurchaseMasterRepository>();
+builder.Services.AddScoped<IPurchaseDetail, PurchaseDetailRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

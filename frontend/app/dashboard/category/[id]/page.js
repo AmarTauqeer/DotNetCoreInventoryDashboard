@@ -41,7 +41,7 @@ const AddEditCategory = () => {
     };
 
     var response = [];
-    console.log(accessToken);
+    // console.log(accessToken);
 
     if (id != 0) {
       response = await fetch(`${url}/api/category/${id}`, {

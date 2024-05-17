@@ -30,38 +30,39 @@ const CustomerList = () => {
   };
 
   const columns = [
-    {
-      name: "ID#",
-      selector: (row) => row.customerId,
-      sortable: true,
-      width: "100px",
-    },
+    // {
+    //   name: "ID#",
+    //   selector: (row) => row.customerId,
+    //   sortable: true,
+    //   width: "10%",
+    // },
     {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "300px",
+      width: "25%",
     },
     {
       name: "EMAIL",
       selector: (row) => row.email,
       sortable: true,
-      width: "300px",
+      width: "15%",
     },
     {
       name: "PHONE",
       selector: (row) => row.phone,
       sortable: true,
-      width: "300px",
+      width: "15%",
     },
     {
       name: "CITY",
       selector: (row) => row.city,
       sortable: true,
-      width: "300px",
+      width: "20%",
     },
     {
       name: "ACTIONS",
+      width: "20%",
       selector: (row) => (
         <div className="flex items-center justify-center">
           <div className="d-flex flex-row align-items-center">
@@ -194,7 +195,7 @@ m-2 md:m-0 lg:m-0"
           >
             <input
               type="text"
-              className="py-4 border rounded-lg px-2 w-full outline-none text-lg"
+              className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
               placeholder="Search here."
               // value={search}
               onChange={handleChange}

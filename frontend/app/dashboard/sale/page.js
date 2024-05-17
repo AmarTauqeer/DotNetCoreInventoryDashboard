@@ -13,6 +13,7 @@ import CustomStyles from "@/components/CustomStyles";
 import { CgDetailsMore } from "react-icons/cg";
 import Loading from "./loading";
 import GeneratePDF from "@/components/GeneratePDF";
+import { BiSolidShow } from "react-icons/bi";
 
 const SaleMaster = () => {
   const [filterSale, setFilterSale] = useState([]);
@@ -30,64 +31,76 @@ const SaleMaster = () => {
   const router = useRouter();
 
   const columns = [
-    {
-      name: "ID",
-      selector: (row) => row.saleMasterId,
-      sortable: true,
-      width: "200px",
-    },
+    // {
+    //   name: "ID",
+    //   selector: (row) => row.saleMasterId,
+    //   sortable: true,
+    //   width: "200px",
+    // },
 
     {
-      name: "Customer",
+      name: "CUSTOMER",
       selector: (row) => {
         if (customerData !== undefined) {
           const filter = customerData.filter(
             (x) => x.customerId === row.customerId
           );
           if (filter !== undefined && filter.length > 0) {
-            return filter[0].name;
+            return <div className="font-semibold">{filter[0].name}</div>;
           }
           return null;
         }
       },
       sortable: true,
-      width: "300px",
+      width: "25%",
     },
     {
-      name: "Sale Amount",
-      selector: (row) => <div>€ {row.saleAmount}</div>,
+      name: "AMOUNT",
+      selector: (row) => (
+        <div className="font-semibold">€ {row.saleAmount}</div>
+      ),
       sortable: true,
-      width: "200px",
+      width: "20%",
     },
     {
-      name: "Create Date",
-      selector: (row) => row.createAt,
+      name: "CREATDATE",
+      selector: (row) => {
+        const event = new Date(row.createAt);
+        return event.toDateString();
+      },
       sortable: true,
-      width: "350px",
+      width: "30%",
     },
     {
       name: "ACTIONS",
+      width:"20%",
       selector: (row) => (
         <div className="flex items-center justify-center">
           <div className="d-flex flex-row align-items-center">
             <div>
-              <CgDetailsMore
+              <BiSolidShow
                 className="m-1 text-cyan-500"
-                onClick={() => router.push(`/dashboard/sale/detail/${row.saleMasterId}`)}
+                onClick={() =>
+                  router.push(`/dashboard/sale/detail/${row.saleMasterId}`)
+                }
                 size={25}
               />
             </div>
 
             <div
               className="m-1"
-              onClick={() => router.push(`/dashboard/sale/detail/${row.saleMasterId}`)}
+              onClick={() =>
+                router.push(`/dashboard/sale/detail/${row.saleMasterId}`)
+              }
             ></div>
           </div>
           <div className="d-flex flex-row align-items-center">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
-                onClick={() => router.push(`/dashboard/sale/${row.saleMasterId}`)}
+                onClick={() =>
+                  router.push(`/dashboard/sale/${row.saleMasterId}`)
+                }
                 size={22}
               />
             </div>
@@ -140,7 +153,7 @@ const SaleMaster = () => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const res = await response.json();
-    // console.log(res);
+    console.log(res);
     if (res) {
       setCustomerData(res);
       setIsLoading(false);
@@ -153,7 +166,7 @@ const SaleMaster = () => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const res = await response.json();
-    console.log(res);
+    // console.log(res);
     if (res) {
       setSaleData(res);
       setIsLoading(false);
@@ -168,18 +181,24 @@ const SaleMaster = () => {
       const customer = customerData.filter((cust) => {
         return cust.name.toLowerCase().includes(e.target.value.toLowerCase());
       });
+      console.log(customer);
 
       if (customer.length > 0) {
         const filtered = customerData.filter((x) => {
-          return x.customer == customer[0].customerId;
+          return x.customerId == customer[0].customerId;
         });
-        setFilterCustomer(filtered);
+
+        if (filtered.length > 0) {
+          const filterSaleData = saleData.filter((x) => {
+            return x.customerId == filtered[0].customerId;
+          });
+          setFilterSale(filterSaleData);
+        }
       }
     }
   };
 
   const handleDelete = async (id) => {
-
     const response = await fetch(`${url}/api/saleMaster/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${accessToken}` },
@@ -259,11 +278,11 @@ const SaleMaster = () => {
           <div className="flex mb-2 justify-between">
             <div
               className="flex items-center bg-white w-80 md:w-[600px] lg:w-[600px]  
-m-2 md:m-0 lg:m-0"
+              m-2 md:m-0 lg:m-0"
             >
               <input
                 type="text"
-                className="py-4 border rounded-lg px-2 w-full outline-none text-lg"
+                className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}

@@ -77,7 +77,7 @@ const SaleDetailDtl = ({ id, data, detailData }) => {
                         disabled
                         name="productId"
                         value={i.productId}
-                        className="outline-none ml-1 text-sm flex rounded py-[10px] shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
+                        className="outline-none ml-1 border border-solid border-gray-700 text-sm flex rounded py-3 shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
                       ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
                       >
                         <option value="">Select product</option>
@@ -97,7 +97,7 @@ const SaleDetailDtl = ({ id, data, detailData }) => {
                         name="qty"
                         value={i.qty}
                         placeholder="qty"
-                        className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm text-center outline-none"
+                        className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm text-center outline-none"
                       />
                     </div>
                     <div>
@@ -107,7 +107,7 @@ const SaleDetailDtl = ({ id, data, detailData }) => {
                         name="rate"
                         value={parseInt(i.rate)}
                         placeholder="rate"
-                        className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                        className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                       />
                     </div>
                     <div>
@@ -116,7 +116,7 @@ const SaleDetailDtl = ({ id, data, detailData }) => {
                         type="number"
                         name="amountPerProduct"
                         value={parseInt(i.amountPerProduct)}
-                        className="w-[45px] md:w-24 lg:24 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                        className="w-[45px] md:w-24 lg:24 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                       />
                     </div>
                   </div>

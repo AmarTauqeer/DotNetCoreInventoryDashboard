@@ -33,6 +33,8 @@ export default function Login() {
         return false;
       } else {
         const tokenTime = new Date();
+        localStorage.removeItem("userInfo");
+        localStorage.removeItem("tokenTime");
         localStorage.setItem("userInfo", JSON.stringify(res));
         localStorage.setItem("tokenTime",tokenTime);
         location.reload(false);

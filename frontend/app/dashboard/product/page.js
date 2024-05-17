@@ -32,16 +32,16 @@ const ProductList = () => {
 
   const columns = [
     {
-      name: "ID#",
+      name: "#",
       selector: (row) => row.productId,
       sortable: true,
-      width: "100px",
+      width: "8%",
     },
     {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "300px",
+      width: "20%",
     },
     {
       name: "CATEGORY",
@@ -56,28 +56,29 @@ const ProductList = () => {
         }
       },
       sortable: true,
-      width: "250px",
+      width: "15%",
     },
     {
       name: "DESCRIPTION",
       selector: (row) => row.description,
       sortable: true,
-      width: "300px",
+      width: "20%",
     },
     {
       name: "PUR.RATE",
       selector: (row) => row.purchaseRate,
       sortable: true,
-      width: "150px",
+      width: "10%",
     },
     {
       name: "SAL.RATE",
       selector: (row) => row.saleRate,
       sortable: true,
-      width: "150px",
+      width: "10%",
     },
     {
       name: "ACTIONS",
+      width:"12%",
       selector: (row) => (
         <div className="flex items-center justify-center">
           <div className="d-flex flex-row align-items-center">
@@ -196,6 +197,20 @@ const ProductList = () => {
     setSelected([])
   };
 
+  const handlePrint = async (accessToken) => {
+    const response = await fetch(`${url}/api/product/list_of_product`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    const res = await response
+    // window.open(res.json())
+    // console.log(res)
+
+    if (res) {
+      window.open(`${url}/api/product/list_of_product`)
+      // console.log("list of product print hit")
+    }
+  };
 
   useEffect(() => {
     checkExpiration();
@@ -222,7 +237,7 @@ m-2 md:m-0 lg:m-0"
           >
             <input
               type="text"
-              className="py-4 border rounded-lg px-2 w-full outline-none text-lg"
+              className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
               placeholder="Search here."
               // value={search}
               onChange={handleChange}
@@ -246,8 +261,9 @@ m-2 md:m-0 lg:m-0"
               </span>
             </div>
             <div className="py-4">
-              <GeneratePDF data={productData} id="employee" />
+              <GeneratePDF data={productData} id="product" />
             </div>
+            <div><button type="button" onClick={()=>handlePrint(accessToken)}>Print</button></div>
           </div>
         </div>
         {isLoading ? (

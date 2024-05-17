@@ -18,35 +18,25 @@ namespace DotNetCoreInventoryDashboard.repository
 
         public async Task<SaleDetail?> DeleteAsync(int saleMasterId)
         {
-            Console.WriteLine("Id = " + saleMasterId);
+            //Console.WriteLine("Id = " + saleMasterId);
             // fetch all
-            //List<SaleDetail> saleDetails = await _db.SaleDetails.ToListAsync();
+            List<SaleDetail> saleDetails = await _db.SaleDetails.ToListAsync();
 
 
 
-            //SaleDetail filterSaleDetail = await _db.SaleDetails.FirstOrDefaultAsync(s => s.SaleMasterId == saleMasterId);
-            //if (filterSaleDetail != null)
-            //{
-            //    _db.Remove(filterSaleDetail);
-            //}
+            SaleDetail filterSaleDetail = await _db.SaleDetails.FirstOrDefaultAsync(s => s.SaleMasterId == saleMasterId);
+            //Console.WriteLine(filterSaleDetail);
+            if (filterSaleDetail != null)
+            {
+                await _db.SaleDetails.Where(s => s.SaleMasterId == saleMasterId).ExecuteDeleteAsync();
+                return filterSaleDetail;
+            }
+            else
+            {
+                //Console.WriteLine("hi");
+                return null;
+            }
 
-
-            //await _db.SaveChangesAsync();
-
-            await _db.SaleDetails.Where(s=>s.SaleMasterId==saleMasterId).ExecuteDeleteAsync();
-            //List<SaleDetail> saleDetail = await _db.SaleDetails.FindAsync(id);
-            //if (saleDetail == null)
-            //{
-            //    return null;
-            //}
-            //foreach (var item in saleDetail)
-            //{
-
-            //}
-            //_db.Remove(saleDetail);
-            //await _db.SaveChangesAsync();
-            //return saleDetail;
-            return null;
         }
 
         public async Task<List<SaleDetail>> GetAllAsync()

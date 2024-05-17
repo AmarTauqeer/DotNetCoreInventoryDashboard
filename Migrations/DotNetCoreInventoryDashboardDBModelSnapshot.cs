@@ -571,7 +571,7 @@ namespace DotNetCoreInventoryDashboard.Migrations
                         .HasForeignKey("ProductId");
 
                     b.HasOne("DotNetCoreInventoryDashboard.models.PurchaseMaster", "PurchaseMaster")
-                        .WithMany()
+                        .WithMany("PurchaseDetails")
                         .HasForeignKey("PurchaseMasterId");
 
                     b.Navigation("Product");
@@ -671,6 +671,11 @@ namespace DotNetCoreInventoryDashboard.Migrations
             modelBuilder.Entity("DotNetCoreInventoryDashboard.models.Department", b =>
                 {
                     b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("DotNetCoreInventoryDashboard.models.PurchaseMaster", b =>
+                {
+                    b.Navigation("PurchaseDetails");
                 });
 
             modelBuilder.Entity("DotNetCoreInventoryDashboard.models.SaleMaster", b =>

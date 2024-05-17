@@ -22,19 +22,16 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
     },
   ]);
 
-  // const getStock = async () => {
-  //   const response = await fetch(`http://127.0.0.1:8000/sale/stock/`, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     credentials: "include",
-  //   });
-  //   const res = await response.json();
-  //   console.log(res);
-  //   if (res) {
-  //     setStock(res);
-  //   }
-  // };
+  const getStock = async (token) => {
+    const response = await fetch(`${url}/api/stock/GetAll`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const res = await response.json();
+    // console.log(res);
+    if (res) {
+      setStock(res);
+    }
+  };
 
   const getProduct = async (token) => {
     const response = await fetch(`${url}/api/product`, {
@@ -54,19 +51,19 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
     values[index][e.target.name] = e.target.value;
 
     //check stock qty
-    // let filterStock = stock.filter(
-    //   (s) => s.product_id === parseInt(inputs[index].product)
-    // );
-    // if (
-    //   parseInt(inputs[index].qty) >
-    //   parseInt(filterStock[0].stock_qty)
-    // ) {
-    //   toast.error(
-    //     "Sale qty doesn't exceed with stock qty=" +
-    //       filterStock[0].stock_qty
-    //   );
-    //   return false;
-    // }
+    let filterStock = stock.filter(
+      (s) => s.productId === parseInt(inputs[index].productId)
+    );
+    if (
+      parseInt(inputs[index].qty) >
+      parseInt(filterStock[0].stockQty)
+    ) {
+      toast.error(
+        "Sale qty doesn't exceed with stock qty=" +
+          filterStock[0].stockQty
+      );
+      return false;
+    }
 
     inputs[index].amountPerProduct = inputs[index].qty * inputs[index].rate;
     setInputs(values);
@@ -116,7 +113,7 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
       setAccessToken(user.accessToken);
       getProduct(user.accessToken);
       setInputs(data);
-      // getStock(user.accessToken);
+      getStock(user.accessToken);
     } else {
       redirect("/");
     }
@@ -140,7 +137,7 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
                       <select
                         name="productId"
                         value={i.productId}
-                        className="outline-none ml-1 text-sm flex rounded py-[10px] shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
+                        className="outline-none ml-1 text-md flex rounded py-[12px] shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
                       ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
                         onChange={(e) => handleChange(e, index)}
                       >
@@ -161,7 +158,7 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
                         value={i.qty}
                         placeholder="qty"
                         onChange={(e) => handleChange(e, index)}
-                        className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm text-center outline-none"
+                        className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm text-center outline-none"
                       />
                     </div>
                     <div>
@@ -171,7 +168,7 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
                         value={parseInt(i.rate)}
                         placeholder="rate"
                         onChange={(e) => handleChange(e, index)}
-                        className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                        className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                       />
                     </div>
                     <div>
@@ -180,13 +177,13 @@ const SaleDetailUpdate = ({ id, data, detailData }) => {
                         type="number"
                         name="amountPerProduct"
                         value={parseInt(i.amountPerProduct)}
-                        className="w-[45px] md:w-24 lg:24 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                        className="w-[45px] md:w-24 lg:24 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                         onChange={(e) => handleChange(e, index)}
                       />
                     </div>
                     <div>
                       <button
-                        className="flex justify-center items-center bg-rose-400 rounded py-[8px] px-4 hover:bg-rose-800 hover:text-white
+                        className="flex justify-center items-center bg-rose-400 rounded py-[11px] px-4 hover:bg-rose-800 hover:text-white
           cursor-pointer text-sm w-[50px] ml-1"
                         type="button"
                         onClick={() => {

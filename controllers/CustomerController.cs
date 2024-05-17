@@ -1,9 +1,12 @@
 ﻿
+using AspNetCore.Reporting;
 using DotNetCoreInventoryDashboard.dtos.Customer;
 using DotNetCoreInventoryDashboard.interfaces;
 using DotNetCoreInventoryDashboard.Mappers;
+using DotNetCoreInventoryDashboard.models;
 using DotNetCoreInventoryDashboard.repository;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -17,12 +20,14 @@ namespace DotNetCoreInventoryDashboard.controllers
     public class CustomerController(ILogger<CustomerController> logger,
         models.DotNetCoreInventoryDashboardDB dotNetCoreInventoryDashboardDB,
         ICustomer customerRepository,
-        IConfiguration configuration) : ControllerBase
+        IConfiguration configuration,
+        IWebHostEnvironment webHostEnvironment) : ControllerBase
     {
         private readonly ILogger<CustomerController> _Logger = logger;
         private readonly models.DotNetCoreInventoryDashboardDB _db = dotNetCoreInventoryDashboardDB;
         private readonly ICustomer _customerRepository = customerRepository;
         private readonly IConfiguration _configuration = configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 
 
         [HttpGet("GetAll")]
@@ -108,6 +113,47 @@ namespace DotNetCoreInventoryDashboard.controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("list_of_customers")]
+        public async Task<FileContentResult> DownloadReport()
+        {
+            //var byteRes = new byte[] { };
+            //string path = _webHostEnvironment.ContentRootPath + "\\Reports\\rpProduct.rdlc";
+            //byteRes = _productRepository.CreateReportFile(path);
+
+            //return File(byteRes,
+            //    System.Net.Mime.MediaTypeNames.Application.Octet,
+            //    "ProductList.pdf");
+
+            string format = "PDF";
+            string extension = "pdf";
+            string mimeType = "application/pdf";
+
+            string reportPath = $"{_webHostEnvironment.ContentRootPath}\\Reports\\rpCustomer.rdlc";
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            string query = "SELECT customers.Name, customers.Phone, customers.Email, customers.Address, customers.City, customers.Country " +
+                "FROM [DotNetCoreInventoryDashboardDB].[dbo].[Customers] as customers";
+            DataTable table = new DataTable();
+
+            SqlDataReader myReader;
+            using (SqlConnection myConn = new SqlConnection(sqlDatasource))
+            {
+                myConn.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myConn))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myConn.Close();
+                }
+            }
+
+            var localReport = new LocalReport(reportPath);
+            localReport.AddDataSource("dsCustomer", table);
+
+            var res = localReport.Execute(RenderType.Pdf, 1, null, mimeType);
+
+            return File(res.MainStream, mimeType);
         }
     }
 }

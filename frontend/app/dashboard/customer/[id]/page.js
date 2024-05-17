@@ -187,7 +187,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="name"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="Customer name"
                 {...register("name", {
                   required: true,
@@ -206,7 +206,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="email"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="email"
                 {...register("email", {
                   required: true,
@@ -224,7 +224,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="phone"
                 {...register("phone", {
                   required: false,
@@ -239,7 +239,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="address"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="Address"
                 {...register("address", {
                   required: false,
@@ -269,7 +269,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="city"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="city"
                 {...register("city", {
                   required: false,
@@ -283,7 +283,7 @@ const AddEditCustomer = () => {
               <input
                 type="text"
                 autoComplete="phone"
-                className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                className="px-2 py-4 ml-2 md:ml-0 outline-none border border-solid border-gray-700 rounded w-60 md:w-[500px]"
                 placeholder="country"
                 {...register("country", {
                   required: false,

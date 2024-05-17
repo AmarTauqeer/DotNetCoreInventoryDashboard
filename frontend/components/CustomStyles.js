@@ -10,6 +10,7 @@ const CustomStyle = {
         "&:hover": {
           backgroundColor: "#F4F5FA",
         },
+        
       },
     },
     headCells: {

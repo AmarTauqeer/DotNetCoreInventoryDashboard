@@ -8,6 +8,8 @@ using DotNetCoreInventoryDashboard.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using DotNetCoreInventoryDashboard.repository;
+using AspNetCore.Reporting;
+using DotNetCoreInventoryDashboard.HelperMethods;
 
 namespace DotNetCoreInventoryDashboard.controllers
 {
@@ -16,13 +18,15 @@ namespace DotNetCoreInventoryDashboard.controllers
     public class ProductController(ILogger<ProductController> logger,
         models.DotNetCoreInventoryDashboardDB dotNetCoreInventoryDashboardDB,
         IProduct productRepository,
-        IConfiguration configuration) : ControllerBase
+        IConfiguration configuration,
+        IWebHostEnvironment webHostEnvironment) : ControllerBase
     {
 
         private readonly ILogger<ProductController> _Logger = logger;
         private readonly models.DotNetCoreInventoryDashboardDB _db = dotNetCoreInventoryDashboardDB;
         private readonly IProduct _productRepository = productRepository;
         private readonly IConfiguration _configuration = configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment=webHostEnvironment;
 
         [HttpGet, Authorize]
         public async Task<IActionResult> GetAll()
@@ -77,6 +81,49 @@ namespace DotNetCoreInventoryDashboard.controllers
             }
 
             return NoContent();
+        }
+
+        [HttpGet("list_of_product")]
+        public async Task<FileContentResult> DownloadProductReport()
+        {
+            //var byteRes = new byte[] { };
+            //string path = _webHostEnvironment.ContentRootPath + "\\Reports\\rpProduct.rdlc";
+            //byteRes = _productRepository.CreateReportFile(path);
+
+            //return File(byteRes,
+            //    System.Net.Mime.MediaTypeNames.Application.Octet,
+            //    "ProductList.pdf");
+
+            string format = "PDF";
+            string extension = "pdf";
+            string mimeType = "application/pdf";
+
+            string reportPath = $"{_webHostEnvironment.ContentRootPath}\\Reports\\rpProduct.rdlc";
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            string query = "SELECT products.ProductId, products.Name,products.Description,products.PurchaseRate ,products.SaleRate ,products.CreateAt," +
+                "categories.Name as category  FROM [DotNetCoreInventoryDashboardDB].[dbo].[Products] as products," +
+                "[DotNetCoreInventoryDashboardDB].[dbo].[Categories] as categories where products.CategoryId = categories.CategoryId";
+            DataTable table = new DataTable();
+
+            SqlDataReader myReader;
+            using (SqlConnection myConn = new SqlConnection(sqlDatasource))
+            {
+                myConn.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myConn))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myConn.Close();
+                }
+            }
+
+            var localReport = new LocalReport(reportPath);
+            localReport.AddDataSource("dsProduct", table);
+
+            var res = localReport.Execute(RenderType.Pdf, 1, null, mimeType);
+
+            return File(res.MainStream, mimeType);
         }
 
     }

@@ -37,19 +37,16 @@ const SaleDetail = (props) => {
     }
   };
 
-//   const getStock = async () => {
-//     const response = await fetch(`http://127.0.0.1:8000/sale/stock/`, {
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       credentials: "include",
-//     });
-//     const res = await response.json();
-//     console.log(res);
-//     if (res) {
-//       setStock(res);
-//     }
-//   };
+  const getStock = async (token) => {
+    const response = await fetch(`${url}/api/stock/GetAll`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const res = await response.json();
+    // console.log(res);
+    if (res) {
+      setStock(res);
+    }
+  };
 
 const getProduct = async (token) => {
     const response = await fetch(`${url}/api/Product`, {
@@ -69,7 +66,7 @@ const getProduct = async (token) => {
     if (user) {
       setAccessToken(user.accessToken);
       getProduct(user.accessToken);
-    //   getStock(user.accessToken);
+      getStock(user.accessToken);
     } else {
       redirect("/");
     }
@@ -89,7 +86,7 @@ const getProduct = async (token) => {
               <div key={id} className="flex m-2 justify-center items-center">
                 <div>
                   <select
-                    className="outline-none ml-1 text-sm flex rounded py-[10px] shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
+                    className="outline-none ml-1 text-sm flex rounded py-[13px] shadow-sm ring-1 ring-inset w-48 md:w-80 lg:w-80
                     ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
                     {...register(`items[${index}].productId`, {
                       onChange: (e) => {
@@ -129,7 +126,7 @@ const getProduct = async (token) => {
                 <div>
                   <input
                     placeholder="qty"
-                    className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm text-center outline-none"
+                    className="w-[25px] md:w-24 lg:24 ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm text-center outline-none"
                     {...register(`items[${index}].qty`, {
                       onChange: (e) => {
                         let amt = 0;
@@ -142,20 +139,20 @@ const getProduct = async (token) => {
                             console.log(element);
                             amt = element.qty * element.rate;
 
-                            // //check stock qty
-                            // let filterStock = stock.filter(
-                            //   (s) => s.productId === parseInt(element.productId)
-                            // );
-                            // if (
-                            //   parseInt(element.qty) >
-                            //   parseInt(filterStock[0].stock_qty)
-                            // ) {
-                            //   toast.error(
-                            //     "Sale qty doesn't exceed with stock qty=" +
-                            //       filterStock[0].stock_qty
-                            //   );
-                            //   return false;
-                            // }
+                            //check stock qty
+                            let filterStock = stock.filter(
+                              (s) => s.productId === parseInt(element.productId)
+                            );
+                            if (
+                              parseInt(element.qty) >
+                              parseInt(filterStock[0].stockQty)
+                            ) {
+                              toast.error(
+                                "Sale qty doesn't exceed with stock qty=" +
+                                  filterStock[0].stockQty
+                              );
+                              return false;
+                            }
                           }
                         }
                         setValue(`items[${index}].amountPerProduct`, amt);
@@ -166,7 +163,7 @@ const getProduct = async (token) => {
                 <div>
                   <input
                     placeholder="rate"
-                    className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                    className="w-[25px] md:w-24 lg:24 text-end ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                     {...register(`items[${index}].rate`, {
                       onChange: (e) => {
                         let amt = 0;
@@ -188,7 +185,7 @@ const getProduct = async (token) => {
                 </div>
                 <div>
                   <input
-                    className="w-[45px] md:w-24 lg:24 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[8px] px-1 text-sm outline-none"
+                    className="w-[45px] md:w-48 lg:w-48 text-end font-bold ml-1 border border-solid border-gray-700 rounded py-[10px] px-1 text-sm outline-none"
                     {...register(`items[${index}].amountPerProduct`, {
                       onChange: (e) => {
                         props.detailData(getValues().items);
@@ -200,7 +197,7 @@ const getProduct = async (token) => {
                 </div>
                 <div>
                   <button
-                    className="flex justify-center items-center bg-rose-400 rounded py-[8px] px-4 hover:bg-rose-800 hover:text-white 
+                    className="flex justify-center items-center bg-rose-400 rounded py-[10px] px-4 hover:bg-rose-800 hover:text-white 
             cursor-pointer text-sm w-[50px] ml-1"
                     type="button"
                     onClick={() => {
