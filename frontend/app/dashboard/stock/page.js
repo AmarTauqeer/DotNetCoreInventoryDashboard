@@ -42,7 +42,7 @@ const Stock = () => {
       name: "ID#",
       selector: (row) => row.productId,
       sortable: true,
-      width: "200px",
+      width: "10%",
     },
     {
       name: "Name",
@@ -53,7 +53,7 @@ const Stock = () => {
         return <div className="font-semibold">{row.productName}</div>;
       },
       sortable: true,
-      width: "550px",
+      width: "20%",
     },
     {
       name: "Qty",
@@ -64,7 +64,7 @@ const Stock = () => {
         return <div>{row.stockQty}</div>;
       },
       sortable: true,
-      width: "300px",
+      width: "10%",
     },
   ];
 
@@ -130,7 +130,7 @@ const Stock = () => {
             >
               <input
                 type="text"
-                className="py-4 border rounded-lg px-2 w-full outline-none text-lg"
+                className="py-2 border rounded-lg px-2 w-full outline-none text-md"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}

@@ -10,6 +10,7 @@ import Loading from "./loading";
 import { redirect, useRouter } from "next/navigation";
 import { MdModeEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import { FaFilePdf } from "react-icons/fa";
 
 const CategoryList = () => {
   const url = process.env.NEXT_PUBLIC_URL;
@@ -40,7 +41,7 @@ const CategoryList = () => {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "45%",
+      width: "20%",
     },
     {
       name: "CREATEDATE",
@@ -49,26 +50,26 @@ const CategoryList = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "30%",
+      width: "20%",
     },
     {
       name: "ACTIONS",
       // width: "50%px",
       selector: (row) => (
         <div className="flex items-center justify-center">
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
                 onClick={() => handleEdit(row.categoryId)}
-                size={28}
+                size={22}
               />
             </div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
-                size={28}
+                size={22}
                 className="m-1 text-red-700"
                 onClick={() => handleDelete(row.categoryId)}
               />
@@ -78,6 +79,21 @@ const CategoryList = () => {
       ),
     },
   ];
+
+  const handlePrint = async (accessToken) => {
+    const response = await fetch(`${url}/api/category/list_of_category`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    const res = await response
+    // window.open(res.json())
+    // console.log(res)
+
+    if (res) {
+      window.open(`${url}/api/category/list_of_category`)
+      // console.log("list of product print hit")
+    }
+  };
 
   const handleChange = (e) => {
     const filtered = categoryData.filter((x) => {
@@ -98,7 +114,7 @@ const CategoryList = () => {
     // console.log(res);
     if (status == 204) {
       // console.log("The record is deleted successfully");
-      getDepartment(accessToken);
+      getCategory(accessToken);
       toast.success("Record is deleted successfully.");
     }
   };
@@ -183,7 +199,7 @@ const CategoryList = () => {
             >
               <input
                 type="text"
-                className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
+                className="lg:py-2 md:py-2 py-1 border rounded-lg px-2 w-full outline-none text-md"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}
@@ -195,7 +211,7 @@ const CategoryList = () => {
             <div className="flex items-center justify-between">
               <div className="py-4 px-4">
                 <span className="text-semibold">
-                  <div className="text-green-700">
+                  <div className="text-green-700 cursor-pointer">
                     <IoIosAddCircleOutline
                       size={30}
                       onClick={() => handleAdd()}
@@ -206,8 +222,8 @@ const CategoryList = () => {
                 </h4> */}
                 </span>
               </div>
-              <div className="py-4">
-                <GeneratePDF data={categoryData} id="category" />
+              <div className="cursor-pointer">
+                <FaFilePdf size={30} onClick={() => handlePrint(accessToken)} />
               </div>
             </div>
           </div>

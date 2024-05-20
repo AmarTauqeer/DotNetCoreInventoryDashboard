@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
         <table className="w-[100%]">
           <tbody>
             <Toaster richColors position="top-right" duration={3000} />

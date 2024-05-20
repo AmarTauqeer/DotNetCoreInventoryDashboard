@@ -52,7 +52,7 @@ const PurchaseMaster = () => {
         }
       },
       sortable: true,
-      width: "25%",
+      width: "20%",
     },
     {
       name: "AMOUNT",
@@ -60,7 +60,7 @@ const PurchaseMaster = () => {
         <div className="font-semibold">€ {row.purchaseAmount}</div>
       ),
       sortable: true,
-      width: "20%",
+      width: "15%",
     },
     {
       name: "CREATEDATE",
@@ -69,14 +69,14 @@ const PurchaseMaster = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "30%",
+      width: "20%",
     },
     {
       name: "ACTIONS",
-      width:"20%",
+      
       selector: (row) => (
         <div className="flex items-center justify-center">
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <BiSolidShow
                 className="m-1 text-cyan-500"
@@ -94,7 +94,7 @@ const PurchaseMaster = () => {
               }
             ></div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
@@ -110,7 +110,7 @@ const PurchaseMaster = () => {
               onClick={() => router.push(`/dashboard/purchase/${row.purchaseMasterId}`)}
             ></div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
                 size={22}
@@ -282,7 +282,7 @@ const PurchaseMaster = () => {
             >
               <input
                 type="text"
-                className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
+                className="lg:py-2 md:py-2 py-1 border rounded-lg px-2 w-full outline-none text-md"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}
@@ -294,7 +294,7 @@ const PurchaseMaster = () => {
             <div className="flex items-center justify-between">
               <div className="py-4 px-4">
                 <span className="text-semibold">
-                  <div className="text-green-700">
+                  <div className="text-green-700 cursor-pointer">
                     <IoIosAddCircleOutline
                       size={30}
                       onClick={() => router.push("/dashboard/purchase/add")}
@@ -305,9 +305,9 @@ const PurchaseMaster = () => {
               </h4> */}
                 </span>
               </div>
-              <div className="py-4">
+              {/* <div className="py-4">
                 <GeneratePDF data={purchaseData} id="purchaseInvoice" />
-              </div>
+              </div> */}
             </div>
           </div>
           {isLoading ? (

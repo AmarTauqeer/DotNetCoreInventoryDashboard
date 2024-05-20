@@ -105,12 +105,7 @@ const Dashboard = () => {
   };
 
   const columns = [
-    // {
-    //   name: "ID#",
-    //   selector: (row) => row.id,
-    //   sortable: true,
-    //   width: "10%",
-    // },
+    
     {
       name: "DATE",
       selector: (row) => {
@@ -118,19 +113,19 @@ const Dashboard = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "28%",
+      width: "15%",
     },
     {
       name: "TYPE",
       selector: (row) => <div className="font-bold">{row.type}</div>,
       sortable: true,
-      width: "17%",
+      width: "15%",
     },
     {
       name: "CUSTOMER/SUPPLIER",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "25%",
+      width: "20%",
     },
     {
       name: "AMOUNT",
@@ -144,7 +139,7 @@ const Dashboard = () => {
         </div>
       ),
       sortable: true,
-      width: "15%",
+      width: "10%",
     },
     {
       name: "DETAIL",
@@ -155,7 +150,7 @@ const Dashboard = () => {
               className="text-blue-400 underline cursor-pointer hover:text-blue-800"
               onClick={() => router.push(`/dashboard/sale/detail/${row.id}`)}
             >
-              <BiSolidShow size={30} />
+              <BiSolidShow size={22} />
             </div>
           );
         } else {
@@ -166,7 +161,7 @@ const Dashboard = () => {
                 router.push(`/dashboard/purchase/detail/${row.id}`)
               }
             >
-              <BiSolidShow size={30} />
+              <BiSolidShow size={22} />
             </div>
           );
         }
@@ -377,7 +372,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-cyan-500 cursor-pointer"
           >
             <div className="font-bold">
-              <PiUsersThree size={80} />
+              <PiUsersThree size={60} />
             </div>
             <div>
               Customers{" "}
@@ -395,7 +390,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-stone-400 cursor-pointer"
           >
             <div className="font-bold">
-              <LiaUsersSolid size={80} />
+              <LiaUsersSolid size={60} />
             </div>
             <div>
               Supplier{" "}
@@ -413,7 +408,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-red-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FaProductHunt size={80} />
+              <FaProductHunt size={60} />
             </div>
             <div>
               Products{" "}
@@ -431,7 +426,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-slate-500 cursor-pointer"
           >
             <div className="font-bold">
-              <MdInventory size={80} />
+              <MdInventory size={60} />
             </div>
             <div>
               Stock{" "}
@@ -449,7 +444,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-green-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FcDepartment size={80} />
+              <FcDepartment size={60} />
             </div>
             <div>
               Departments{" "}
@@ -467,7 +462,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-blue-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FiUsers size={80} />
+              <FiUsers size={60} />
             </div>
             <div>
               Employees{" "}
@@ -485,7 +480,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-fuchsia-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FaFileInvoiceDollar size={80} />
+              <FaFileInvoiceDollar size={60} />
             </div>
             <div>
               Sale{" "}
@@ -513,7 +508,7 @@ const Dashboard = () => {
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-orange-600 cursor-pointer"
           >
             <div className="font-bold">
-              <LiaFileInvoiceDollarSolid size={80} />
+              <LiaFileInvoiceDollarSolid size={60} />
             </div>
             <div>
               Purchase{" "}

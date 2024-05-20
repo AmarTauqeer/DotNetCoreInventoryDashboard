@@ -220,3 +220,5 @@ Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\obj\Debug\net8.0-windows10.0.2
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\obj\Debug\net8.0-windows10.0.22621.0\DotNetCoreInventoryDashboard.pdb
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\obj\Debug\net8.0-windows10.0.22621.0\DotNetCoreInventoryDashboard.genruntimeconfig.cache
 Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\obj\Debug\net8.0-windows10.0.22621.0\ref\DotNetCoreInventoryDashboard.dll
+Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0-windows10.0.22621.0\Reports\rpCategory.rdlc
+Z:\DotnetProject\Web\DotNetCoreInventoryDashboard\bin\Debug\net8.0-windows10.0.22621.0\Reports\rpDepartment.rdlc

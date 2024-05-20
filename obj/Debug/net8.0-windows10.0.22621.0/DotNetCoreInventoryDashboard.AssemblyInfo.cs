@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DotNetCoreInventoryDashboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+952e688a3b0ebe02ab63c47e216773c55ceacf89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+181dde70c2b050d5984ec90aefc3f0abb6f05912")]
 [assembly: System.Reflection.AssemblyProductAttribute("DotNetCoreInventoryDashboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DotNetCoreInventoryDashboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

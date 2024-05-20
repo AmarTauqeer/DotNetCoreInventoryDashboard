@@ -41,7 +41,7 @@ const EmployeeList = () => {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.employeeName}</div>,
       sortable: true,
-      width: "25%",
+      width: "20%",
     },
     {
       name: "DEPARTMENT",
@@ -56,7 +56,7 @@ const EmployeeList = () => {
         }
       },
       sortable: true,
-      width: "20%",
+      width: "15%",
     },
     {
       name: "EMAIL",
@@ -72,22 +72,22 @@ const EmployeeList = () => {
     },
     {
       name: "ACTIONS",
-      width:"20%",
+      
       selector: (row) => (
         <div className="flex items-center justify-center">
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
                 onClick={() => handleEdit(row.employeeId)}
-                size={28}
+                size={22}
               />
             </div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
-                size={28}
+                size={22}
                 className="m-1 text-red-700"
                 onClick={() => handleDelete(row.employeeId)}
               />
@@ -217,7 +217,7 @@ m-2 md:m-0 lg:m-0"
           >
             <input
               type="text"
-              className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
+              className="lg:py-2 md:py-2 py-1 border rounded-lg px-2 w-full outline-none text-md"
               placeholder="Search here."
               // value={search}
               onChange={handleChange}
@@ -229,7 +229,7 @@ m-2 md:m-0 lg:m-0"
           <div className="flex items-center justify-between">
             <div className="py-4 px-4">
               <span className="text-semibold">
-                <div className="text-green-700">
+                <div className="text-green-700 cursor-pointer">
                   <IoIosAddCircleOutline
                     size={30}
                     onClick={() => handleAdd()}

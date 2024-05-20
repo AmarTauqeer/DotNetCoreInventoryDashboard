@@ -148,7 +148,7 @@ const Detail = (props) => {
         <form>
           <div className="flex flex-col m-2">
             <div className="flex items-center m-2 outline-none">
-              <span className="w-24 md:w-48 lg:48 text-xs md:text-sm">
+              <span className="w-24 md:w-48 lg:48 text-xs md:text-sm md:font-semibold">
                 Date
               </span>
               <DateTimePicker
@@ -162,7 +162,7 @@ const Detail = (props) => {
             </div>
 
             <div className="flex items-center m-2">
-              <span className="w-24 md:w-48 text-xs md:text-sm">Supplier</span>
+              <span className="w-24 md:w-48 text-xs md:text-sm md:font-semibold">Supplier</span>
               <select
                 disabled
                 className="py-3 border border-solid border-gray-700 rounded-lg px-2 w-full outline-none text-md"
@@ -182,7 +182,7 @@ const Detail = (props) => {
               </select>
             </div>
             <div className="flex items-center m-2">
-              <span className="w-24 md:w-48 text-xs md:text-sm">
+              <span className="w-24 md:w-48 text-xs md:text-sm md:font-semibold">
                 Purchase Amount
               </span>
 

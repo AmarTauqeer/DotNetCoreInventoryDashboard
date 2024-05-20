@@ -1,39 +1,39 @@
 This is
 a  [Dotnet Core](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-8.0), [Next.js](https://nextjs.org/) , [React.js](https://nextjs.org/), [Tailwind.css](https://tailwindui.com/),
-and , [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) employee management application.
+and , [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) Gondal Industry inventory management application.
 
-## Employee Management REST APIs Endpoints
-![](/images/part-1.png)
-![](/images/part-2.png)
+## Gondal Industry Inventory Management REST APIs Endpoints
+![](/images/swagger-api.png)
+![](/images/swagger-api-1.png)
+![](/images/swagger-api-2.png)
+![](/images/swagger-api-3.png)
+![](/images/swagger-api-schemas.png)
 
 ## App Features
 
 - Dotnet Core authentication with Token and authorization.
 - Single page application.
-- Post filteration based on department and employee
-- User registration, signin, token, referesh token, department, and employee management.
+- Search/filter based on category, products, suppliers, department, employee, sale, purchase, and customers
+- Department, employee, category, product, supplier, customer, stock, sale, and purchase management.
 - Responsive
-- Deployement on Microsoft Azure
+- Reports using RDLC
 
 ## Technology and Tools
 
 - Dotnet Core Web API, Dotnet Core Entityframework, and SQL Server.
 - NextJs 14.0.4.
 - React 18, react-dom 18, react-hook-forms 7.49.2, and react-icons 4.12.
-- Microsoft Azure (App services, resources, database)
 - Tailwind css.
 - NodeJs and NPM.
 
 ## GitHub and Video
 
-- [GitHub](https://github.com/AmarTauqeer/EmployeeMangement.git).
-- [Video Backend](https://www.youtube.com/watch?v=cO9n0PlyD4w&ab_channel=AmarTauqeer).
-- [Video Frontend](https://www.youtube.com/watch?v=U5HgMbhuv-8&ab_channel=AmarTauqeer).
-- [Live Demonstration Backend (swagger)](https://coreemployeeapi.azurewebsites.net/swagger/index.html).
+- [GitHub](https://github.com/AmarTauqeer/DotNetCoreInventoryDashboard).
+- [Video Backend](https://youtu.be/KxLNIdppvQk).
 
 ## Install and Run
 
-- Download project from [GitHub](https://github.com/AmarTauqeer/EmployeeMangement.git).
+- Download project from [GitHub](https://github.com/AmarTauqeer/DotNetCoreInventoryDashboard).
 - Load the project in your favourit ID VS Code, for example.
 - Install dependencies
 - Run `dotnet watch run`

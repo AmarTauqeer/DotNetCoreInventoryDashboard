@@ -91,7 +91,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Dashboard
@@ -114,7 +114,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Category
@@ -137,7 +137,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Product
@@ -160,7 +160,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Customer
@@ -183,7 +183,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Supplier
@@ -206,7 +206,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Purchase Invoice
@@ -229,7 +229,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Sale Invoice
@@ -252,7 +252,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Stock
@@ -267,7 +267,7 @@ const Sidebar = () => {
                   <li>
                     <div className="group flex relative">
                       <span
-                        className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                        className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                       >
                         DETAIL REPORTS
@@ -286,7 +286,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Department
@@ -309,7 +309,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Employee
@@ -334,7 +334,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm font-semibold text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm font-semibold text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Reports
@@ -358,7 +358,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Category Details
@@ -381,7 +381,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Sale Detail
@@ -404,7 +404,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Customer Wise Sale Detail
@@ -427,7 +427,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Product Wise Sale Detail
@@ -450,7 +450,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Purchase Detail
@@ -473,7 +473,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Supplier Wise Sale Detail
@@ -496,7 +496,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Product Wise Purchase Detail
@@ -520,7 +520,7 @@ const Sidebar = () => {
                     >
                       <div className="group flex relative">
                         <span
-                          className="group-hover:opacity-100 transition-opacity bg-[#F4F5FA] px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
+                          className="group-hover:opacity-100 transition-opacity bg-slate-400 py-1 px-1 text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
                         >
                           Logout

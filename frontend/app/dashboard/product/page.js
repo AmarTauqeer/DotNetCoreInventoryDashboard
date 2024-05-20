@@ -10,6 +10,7 @@ import CustomStyles from "@/components/CustomStyles";
 import Loading from "./loading";
 import { redirect, useRouter } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
+import { FaFilePdf } from "react-icons/fa";
 
 const ProductList = () => {
   const url = process.env.NEXT_PUBLIC_URL;
@@ -78,22 +79,22 @@ const ProductList = () => {
     },
     {
       name: "ACTIONS",
-      width:"12%",
+      width: "12%",
       selector: (row) => (
         <div className="flex items-center justify-center">
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
                 onClick={() => handleEdit(row.productId)}
-                size={28}
+                size={22}
               />
             </div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
-                size={28}
+                size={22}
                 className="m-1 text-red-700"
                 onClick={() => handleDelete(row.productId)}
               />
@@ -106,9 +107,7 @@ const ProductList = () => {
 
   const handleChange = (e) => {
     const filtered = productData.filter((x) => {
-      return x.name
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+      return x.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
     // console.log(filtered)
     setFilterProduct(filtered);
@@ -194,7 +193,7 @@ const ProductList = () => {
         handleDelete(element);
       }
     }
-    setSelected([])
+    setSelected([]);
   };
 
   const handlePrint = async (accessToken) => {
@@ -202,12 +201,12 @@ const ProductList = () => {
       method: "GET",
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-    const res = await response
+    const res = await response;
     // window.open(res.json())
     // console.log(res)
 
     if (res) {
-      window.open(`${url}/api/product/list_of_product`)
+      window.open(`${url}/api/product/list_of_product`);
       // console.log("list of product print hit")
     }
   };
@@ -226,51 +225,50 @@ const ProductList = () => {
 
   return (
     <>
-    {expire && redirect("/")}
-    <div className="flex flex-col items-center justify-center">
-      <div className="container">
-        <h3 className="font-semibold text-2xl mb-6 mt-6">Product List</h3>
-        <div className="flex mb-2 justify-between">
-          <div
-            className="flex items-center bg-white w-80 md:w-[600px] lg:w-[600px]  
+      {expire && redirect("/")}
+      <div className="flex flex-col items-center justify-center">
+        <div className="container">
+          <h3 className="font-semibold text-2xl mb-6 mt-6">Product List</h3>
+          <div className="flex mb-2 justify-between">
+            <div
+              className="flex items-center bg-white w-80 md:w-[600px] lg:w-[600px]  
 m-2 md:m-0 lg:m-0"
-          >
-            <input
-              type="text"
-              className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
-              placeholder="Search here."
-              // value={search}
-              onChange={handleChange}
-            />
-            {/* <span>
+            >
+              <input
+                type="text"
+                className="lg:py-2 md:py-2 py-1 border rounded-lg px-2 w-full outline-none text-md"
+                placeholder="Search here."
+                // value={search}
+                onChange={handleChange}
+              />
+              {/* <span>
               <FiSearch size={30} />
             </span> */}
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="py-4 px-4">
-              <span className="text-semibold">
-                <div className="text-green-700">
-                  <IoIosAddCircleOutline
-                    size={30}
-                    onClick={() => handleAdd()}
-                  />
-                </div>
-                {/* <h4 onClick={() => handleAdd()}>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="py-4 px-4">
+                <span className="text-semibold">
+                  <div className="text-green-700 cursor-pointer">
+                    <IoIosAddCircleOutline
+                      size={30}
+                      onClick={() => handleAdd()}
+                    />
+                  </div>
+                  {/* <h4 onClick={() => handleAdd()}>
                 Add Department
               </h4> */}
-              </span>
+                </span>
+              </div>
+              <div className="cursor-pointer">
+                <FaFilePdf size={30} onClick={() => handlePrint(accessToken)} />
+              </div>
             </div>
-            <div className="py-4">
-              <GeneratePDF data={productData} id="product" />
-            </div>
-            <div><button type="button" onClick={()=>handlePrint(accessToken)}>Print</button></div>
           </div>
-        </div>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
-           {selected.length > 0 && (
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              {selected.length > 0 && (
                 <div
                   className="flex items-center cursor-pointer"
                   onClick={() => handleDeleteSelected()}
@@ -281,35 +279,33 @@ m-2 md:m-0 lg:m-0"
                   </div>
                 </div>
               )}
-            {productData.length > 0 ? (
-              <div className="border">
-                <DataTable
-                  columns={columns}
-                  data={
-                    filterProduct.length >= 1
-                      ? filterProduct
-                      : productData
-                  }
-                  selectableRows
-                  onSelectedRowsChange={handleChangeRowsChange}
-                  pagination
-                  customStyles={CustomStyles}
-                  // highlightOnHover
-                  dense
-                  // fixedHeader={!showModal && fixedHeader}
-                  fixedHeaderScrollHeight="400px"
-                  theme="solarized"
-                  progressPending={isLoading}
-                />
-              </div>
-            ) : (
-              "There are no records to display"
-            )}
-          </>
-        )}
+              {productData.length > 0 ? (
+                <div className="border">
+                  <DataTable
+                    columns={columns}
+                    data={
+                      filterProduct.length >= 1 ? filterProduct : productData
+                    }
+                    selectableRows
+                    onSelectedRowsChange={handleChangeRowsChange}
+                    pagination
+                    customStyles={CustomStyles}
+                    // highlightOnHover
+                    dense
+                    // fixedHeader={!showModal && fixedHeader}
+                    fixedHeaderScrollHeight="400px"
+                    theme="solarized"
+                    progressPending={isLoading}
+                  />
+                </div>
+              ) : (
+                "There are no records to display"
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  </>
+    </>
   );
 };
 

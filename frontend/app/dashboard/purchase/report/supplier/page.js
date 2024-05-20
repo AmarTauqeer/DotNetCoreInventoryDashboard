@@ -118,7 +118,7 @@ const SupplierPurchaseDetailReport = () => {
                   Supplier
                 </span>
                 <select
-                  className="py-1 border border-solid border-gray-700 rounded-lg px-2 outline-none text-md lg:w-[250px] md:w-[250px]"
+                  className="py-1 border border-solid border-gray-700 rounded-lg px-2 ml-3 outline-none text-md lg:w-[250px] md:w-[250px]"
                   {...register("supplierId", {
                     required: "Supplier is required.",
                   })}

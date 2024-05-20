@@ -1,7 +1,7 @@
 import React from "react";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import { FaFilePdf } from "react-icons/fa";
+import { FaFilePdf, FaRegFilePdf } from "react-icons/fa";
 
 const GeneratePDF = (props) => {
   const data = props.data;
@@ -114,7 +114,7 @@ const GeneratePDF = (props) => {
       }
     }
   };
-  return <FaFilePdf size={30} color="red" onClick={generate} />;
+  return <FaFilePdf size={35} onClick={generate} />;
 };
 
 export default GeneratePDF;

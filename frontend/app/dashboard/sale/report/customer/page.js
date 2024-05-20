@@ -119,7 +119,7 @@ const CustomerSaleDetailReport = () => {
                   Customer
                 </span>
                 <select
-                  className="py-1 border border-solid border-gray-700 rounded-lg px-2 outline-none text-md lg:w-[250px] md:w-[250px]"
+                  className="py-1 border border-solid border-gray-700 rounded-lg px-2 ml-3 md:ml-0 lg:ml-0 outline-none text-md lg:w-[250px] md:w-[250px]"
                   {...register("customerId", {
                     required: "Customer is required.",
                   })}

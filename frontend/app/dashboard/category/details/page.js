@@ -28,7 +28,7 @@ const CategoryDetails = () => {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "45%",
+      width: "20%",
     },
     {
       name: "CREATEDATE",
@@ -37,7 +37,7 @@ const CategoryDetails = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "30%",
+      width: "15%",
     },
   ];
 

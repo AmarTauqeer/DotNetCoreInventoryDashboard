@@ -3,8 +3,8 @@ const CustomStyle = {
     // minWidth:"1200px",
     rows: {
       style: {
-        fontSize: "18px",
-        height:"70px",
+        fontSize: "16px",
+        height:"55px",
         paddingBottom: "8px",
         paddingTop: "8px",
         "&:hover": {

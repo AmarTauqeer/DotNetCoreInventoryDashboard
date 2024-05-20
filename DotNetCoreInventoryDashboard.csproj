@@ -71,9 +71,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Update="Datasets\dsCategory.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsCategory.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
     <None Update="Datasets\dsCustomer.xsd">
       <SubType>Designer</SubType>
       <LastGenOutput>dsCustomer.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Update="Datasets\dsDepartment.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsDepartment.Designer.cs</LastGenOutput>
       <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Update="Datasets\dsProduct.xsd">
@@ -116,7 +126,13 @@
       <LastGenOutput>dsSupplier.Designer.cs</LastGenOutput>
       <Generator>MSDataSetGenerator</Generator>
     </None>
+    <None Update="Reports\rpDepartment.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\rpCustomer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\rpCategory.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Reports\rpProduct.rdlc">

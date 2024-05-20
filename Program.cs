@@ -36,8 +36,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Dotnetcore Inventory API",
-        Description = "An ASP.NET Core Web API for managing inventory data",
+        Title = "Gondal Industry Inventory Management API",
+        Description = "An ASP.NET Core Web API for managing inventory data of Gondal Industry",
         // TermsOfService = new Uri("https://example.com/terms"),
         // Contact = new OpenApiContact
         // {

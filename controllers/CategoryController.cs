@@ -7,6 +7,8 @@ using DotNetCoreInventoryDashboard.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using DotNetCoreInventoryDashboard.repository;
+using AspNetCore.Reporting;
+using Microsoft.AspNetCore.Hosting;
 
 
 namespace DotNetCoreInventoryDashboard.controllers
@@ -16,12 +18,14 @@ namespace DotNetCoreInventoryDashboard.controllers
     public class CategoryController(ILogger<CategoryController> logger,
         models.DotNetCoreInventoryDashboardDB dotNetCoreInventoryDashboardDB,
         ICategory categoryRepository,
-        IConfiguration configuration) : ControllerBase
+        IConfiguration configuration,
+        IWebHostEnvironment webHostEnvironment) : ControllerBase
     {
         private readonly ILogger<CategoryController> _Logger = logger;
         private readonly models.DotNetCoreInventoryDashboardDB _db = dotNetCoreInventoryDashboardDB;
         private readonly ICategory _categoryRepository = categoryRepository;
         private readonly IConfiguration _configuration = configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 
 
         [HttpGet("GetAll")]
@@ -107,6 +111,37 @@ namespace DotNetCoreInventoryDashboard.controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("list_of_category")]
+        public async Task<FileContentResult> DownloadCategoryReport()
+        {
+            string mimeType = "application/pdf";
+
+            string reportPath = $"{_webHostEnvironment.ContentRootPath}\\Reports\\rpCategory.rdlc";
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            string query = "SELECT categories.CategoryId, categories.Name,categories.CreateAt," +
+                "categories.Name as category  FROM [DotNetCoreInventoryDashboardDB].[dbo].[Categories] as categories";
+            DataTable table = new DataTable();
+
+            SqlDataReader myReader;
+            using (SqlConnection myConn = new SqlConnection(sqlDatasource))
+            {
+                myConn.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myConn))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myConn.Close();
+                }
+            }
+
+            var localReport = new LocalReport(reportPath);
+            localReport.AddDataSource("dsCategory", table);
+
+            var res = localReport.Execute(RenderType.Pdf, 1, null, mimeType);
+
+            return File(res.MainStream, mimeType);
         }
 
     }

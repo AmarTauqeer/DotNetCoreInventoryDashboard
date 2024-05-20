@@ -10,6 +10,7 @@ import Loading from "./loading";
 import { redirect, useRouter } from "next/navigation";
 import { MdModeEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import { FaFilePdf } from "react-icons/fa";
 
 const DepartmentList = () => {
   const url = process.env.NEXT_PUBLIC_URL;
@@ -40,7 +41,7 @@ const DepartmentList = () => {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.departmentName}</div>,
       sortable: true,
-      width: "25%",
+      width: "20%",
     },
     {
       name: "CREATEDATE",
@@ -49,15 +50,14 @@ const DepartmentList = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "30%",
+      width: "20%",
     },
     {
       name: "ACTIONS",
-      width:"20%",
-      width: "350px",
+      
       selector: (row) => (
         <div className="flex items-center justify-center">
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdModeEdit
                 className="m-1 text-yellow-500"
@@ -66,7 +66,7 @@ const DepartmentList = () => {
               />
             </div>
           </div>
-          <div className="d-flex flex-row align-items-center">
+          <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
                 size={28}
@@ -159,6 +159,20 @@ const DepartmentList = () => {
     }
     setSelected([])
   };
+  const handlePrint = async (accessToken) => {
+    const response = await fetch(`${url}/api/department/list_of_department`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    const res = await response
+    // window.open(res.json())
+    // console.log(res)
+
+    if (res) {
+      window.open(`${url}/api/department/list_of_department`)
+      // console.log("list of product print hit")
+    }
+  };
 
   useEffect(() => {
     checkExpiration();
@@ -184,7 +198,7 @@ const DepartmentList = () => {
             >
               <input
                 type="text"
-                className="lg:py-4 md:py-4 py-1 border rounded-lg px-2 w-full outline-none text-lg"
+                className="lg:py-2 md:py-2 py-1 border rounded-lg px-2 w-full outline-none text-md"
                 placeholder="Search here."
                 // value={search}
                 onChange={handleChange}
@@ -196,7 +210,7 @@ const DepartmentList = () => {
             <div className="flex items-center justify-between">
               <div className="py-4 px-4">
                 <span className="text-semibold">
-                  <div className="text-green-700">
+                  <div className="text-green-700 cursor-pointer">
                     <IoIosAddCircleOutline
                       size={30}
                       onClick={() => handleAdd()}
@@ -207,8 +221,11 @@ const DepartmentList = () => {
                 </h4> */}
                 </span>
               </div>
-              <div className="py-4">
+              {/* <div className="py-4">
                 <GeneratePDF data={departmentData} id="department" />
+              </div> */}
+              <div className="cursor-pointer">
+                <FaFilePdf size={30}  onClick={()=>handlePrint(accessToken)}/>
               </div>
             </div>
           </div>

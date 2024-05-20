@@ -86,16 +86,6 @@ namespace DotNetCoreInventoryDashboard.controllers
         [HttpGet("list_of_product")]
         public async Task<FileContentResult> DownloadProductReport()
         {
-            //var byteRes = new byte[] { };
-            //string path = _webHostEnvironment.ContentRootPath + "\\Reports\\rpProduct.rdlc";
-            //byteRes = _productRepository.CreateReportFile(path);
-
-            //return File(byteRes,
-            //    System.Net.Mime.MediaTypeNames.Application.Octet,
-            //    "ProductList.pdf");
-
-            string format = "PDF";
-            string extension = "pdf";
             string mimeType = "application/pdf";
 
             string reportPath = $"{_webHostEnvironment.ContentRootPath}\\Reports\\rpProduct.rdlc";

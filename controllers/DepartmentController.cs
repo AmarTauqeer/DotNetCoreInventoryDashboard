@@ -1,9 +1,12 @@
 using System.Data;
+using AspNetCore.Reporting;
 using DotNetCoreInventoryDashboard.dtos.Department;
 using DotNetCoreInventoryDashboard.interfaces;
 using DotNetCoreInventoryDashboard.Mappers;
 using DotNetCoreInventoryDashboard.models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
@@ -16,12 +19,14 @@ namespace DotNetCoreInventoryDashboard.controllers
         ILogger<DepartmentController> logger,
         models.DotNetCoreInventoryDashboardDB employeeContextDB,
         IDepartmentRepository departmentRepository,
-        IConfiguration configuration) : ControllerBase
+        IConfiguration configuration,
+        IWebHostEnvironment webHostEnvironment) : ControllerBase
     {
         private readonly ILogger<DepartmentController> _Logger = logger;
         private readonly models.DotNetCoreInventoryDashboardDB _emoloyeeContextDB = employeeContextDB;
         private readonly IDepartmentRepository _departmentRepository = departmentRepository;
         private readonly IConfiguration _configuration = configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 
         [HttpGet("GetAll")]
         public JsonResult GetAllDepartment()
@@ -106,6 +111,37 @@ namespace DotNetCoreInventoryDashboard.controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("list_of_department")]
+        public async Task<FileContentResult> DownloadDepartmentReport()
+        {
+            string mimeType = "application/pdf";
+
+            string reportPath = $"{_webHostEnvironment.ContentRootPath}\\Reports\\rpDepartment.rdlc";
+            string sqlDatasource = _configuration.GetConnectionString("DefaultConnection");
+            string query = "SELECT [DepartmentId],[DepartmentName],[CreateAt]" +
+                "FROM [DotNetCoreInventoryDashboardDB].[dbo].[Departments]";
+            DataTable table = new DataTable();
+
+            SqlDataReader myReader;
+            using (SqlConnection myConn = new SqlConnection(sqlDatasource))
+            {
+                myConn.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myConn))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myConn.Close();
+                }
+            }
+
+            var localReport = new LocalReport(reportPath);
+            localReport.AddDataSource("dsDepartment", table);
+
+            var res = localReport.Execute(RenderType.Pdf, 1, null, mimeType);
+
+            return File(res.MainStream, mimeType);
         }
     }
 }
