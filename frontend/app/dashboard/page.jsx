@@ -366,7 +366,7 @@ const Dashboard = () => {
         <div>
           <h1 className="font-bold">Dashboard</h1>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-4 gap-4 pt-5">
+        <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-4 gap-4 pt-5">
           <div
             onClick={() => router.push("/dashboard/customer")}
             className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-cyan-500 cursor-pointer"
@@ -537,7 +537,7 @@ const Dashboard = () => {
         <br />
         <br />
         {monthWiseTotalSale.length > 0 ? (
-          <div className="grid lg:grid-cols-1 md:grid-cols-1 m-auto p-4 border rounded-lg bg-white mb-6 mt-10 overflow-x-auto">
+          <div className="grid grid-cols-1 m-auto p-4 border rounded-lg bg-white mb-6 mt-10 overflow-x-auto">
             <Bar options={options} data={data} />
           </div>
         ) : (

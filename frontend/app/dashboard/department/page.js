@@ -62,14 +62,14 @@ const DepartmentList = () => {
               <MdModeEdit
                 className="m-1 text-yellow-500"
                 onClick={() => handleEdit(row.departmentId)}
-                size={28}
+                size={22}
               />
             </div>
           </div>
           <div className="d-flex flex-row align-items-center cursor-pointer">
             <div>
               <MdDeleteForever
-                size={28}
+                size={22}
                 className="m-1 text-red-700"
                 onClick={() => handleDelete(row.departmentId)}
               />

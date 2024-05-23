@@ -158,11 +158,11 @@ const AddEditDeaprtment = () => {
               <span className="font-semibold px-2 py-2 md:px-0 md:my-0">
                 Department Name
               </span>
-              <div className="flex items-center py-3">
+              <div className="flex items-center">
                 <input
                   type="text"
                   autoComplete="departmentName"
-                  className="px-2 py-4 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
+                  className="px-2 py-2 ml-2 md:ml-0 outline-none border w-60 md:w-[500px]"
                   placeholder="enter department name"
                   {...register("departmentName", {
                     required: true,
@@ -178,7 +178,7 @@ const AddEditDeaprtment = () => {
                 <button
                   onClick={handleSubmit(onSubmit)}
                   type="button"
-                  className="rounded-md bg-cyan-600 px-3 py-4 text-lg font-semibold 
+                  className="rounded-md bg-cyan-600 px-3 py-2 text-lg font-semibold 
               text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 
               focus-visible:outline-offset-2 focus-visible:outline-cyan-600  mb-4 w-full"
                 >

@@ -31,12 +31,20 @@ const EmployeeList = () => {
   };
 
   const columns = [
-    // {
-    //   name: "ID#",
-    //   selector: (row) => row.employeeId,
-    //   sortable: true,
-    //   width: "100px",
-    // },
+    {
+      name: "Avtar",
+      selector: (row) => {
+        const nameParts = row.employeeName.split(" ");
+        const firstNameInitial = nameParts[0] ? nameParts[0][0] : "";
+        const lastNameInitial = nameParts[1] ? nameParts[1][0] : "";
+        const nameInitial = nameParts[2]? nameParts[2][0]:"";
+        const initialsAll =firstNameInitial+lastNameInitial+nameInitial;
+        // setInitials(firstNameInitial+lastNameInitial+nameInitial);
+        return <div className="flex rounded-full py-2 px-2 bg-sky-700 text-white text-sm">{initialsAll}</div>
+      },
+      sortable: true,
+      width: "10%",
+    },
     {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.employeeName}</div>,

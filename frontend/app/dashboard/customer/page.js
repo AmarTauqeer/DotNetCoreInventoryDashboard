@@ -22,6 +22,7 @@ const CustomerList = () => {
   const [expire, setExpire] = useState(false);
   const [selected, setSelected] = useState([]);
   const [deleteSelected, setDeleteSelected] = useState(false);
+  const[initials, setInitials]=useState("")
 
   const handleEdit = (id) => {
     router.push(`/dashboard/customer/${id}`);
@@ -31,12 +32,20 @@ const CustomerList = () => {
   };
 
   const columns = [
-    // {
-    //   name: "ID#",
-    //   selector: (row) => row.customerId,
-    //   sortable: true,
-    //   width: "10%",
-    // },
+    {
+      name: "Avtar",
+      selector: (row) => {
+        const nameParts = row.name.split(" ");
+        const firstNameInitial = nameParts[0] ? nameParts[0][0] : "";
+        const lastNameInitial = nameParts[1] ? nameParts[1][0] : "";
+        const nameInitial = nameParts[2]? nameParts[2][0]:"";
+        const initialsAll =firstNameInitial+lastNameInitial+nameInitial;
+        // setInitials(firstNameInitial+lastNameInitial+nameInitial);
+        return <div className="flex rounded-full py-2 px-2 bg-cyan-700 text-white text-sm">{initialsAll}</div>
+      },
+      sortable: true,
+      width: "10%",
+    },
     {
       name: "NAME",
       selector: (row) => <div className="font-bold">{row.name}</div>,
@@ -200,6 +209,7 @@ const CustomerList = () => {
   return (
     <>
     {expire && redirect("/")}
+    {console.log(initials)}
     <div className="flex flex-col items-center justify-center">
       <div className="container">
         <h3 className="font-semibold text-2xl mb-6 mt-6">Customer List</h3>
