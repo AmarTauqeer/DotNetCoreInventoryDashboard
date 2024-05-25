@@ -29,7 +29,7 @@ and , [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloa
 ## GitHub and Video
 
 - [GitHub](https://github.com/AmarTauqeer/DotNetCoreInventoryDashboard).
-- [Video Backend](https://youtu.be/KxLNIdppvQk).
+- [Video](https://youtu.be/nsEyJerCyzM).
 
 ## Install and Run
 

@@ -23,7 +23,9 @@ import { TbReportSearch } from "react-icons/tb";
 import { CgDetailsMore } from "react-icons/cg";
 
 const Sidebar = () => {
+  const url = process.env.NEXT_PUBLIC_URL;
   const [isOpen, SetIsOpen] = useState(false);
+  const[email, setEmail]=useState()||"";
   const [user, setUser] = useState([]);
   const [navState, setNavState] = useState("/");
   const router = useRouter();
@@ -32,10 +34,23 @@ const Sidebar = () => {
     localStorage.removeItem("userInfo");
   };
 
+  const getUserEmail=async (token)=>{
+    const response = await fetch(`${url}/manage/info`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const res = await response.json();
+    if (res) {
+      setEmail(res.email);
+    }
+      
+  }
+
   useEffect(() => {
     var user = JSON.parse(localStorage.getItem("userInfo"));
     if (user) {
       setUser(user);
+      getUserEmail(user.accessToken);
     }
   }, []);
 
@@ -69,9 +84,12 @@ const Sidebar = () => {
           <div className="m-4 w-[16rem]">
             <div className="font-semibold mb-4 ">
               {isOpen && (
+                <>
                 <h1 className="uppercase font-black">
                   Gondal Industries Dashboard
                 </h1>
+                {email && <div className="font-semibold mt-2 mb-2">{email}</div>}
+                </>
               )}
             </div>
 

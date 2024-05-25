@@ -6,16 +6,18 @@ import GeneratePDF from "@/components/GeneratePDF";
 import CustomStyles from "@/components/CustomStyles";
 import { BiSolidShow } from "react-icons/bi";
 import { useRouter } from "next/navigation";
-import {
-  Chart as ChartJS,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  Tooltip,
-  Legend,
-  Title,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
+import 'chart.js/auto'
+// import {
+//   Chart as ChartJS,
+//   BarElement,
+//   CategoryScale,
+//   LinearScale,
+//   Tooltip,
+//   Legend,
+//   Title,
+//   PointElement,
+// } from "chart.js";
+import { Bar, Line } from "react-chartjs-2";
 import { PiUsersThree } from "react-icons/pi";
 import { LiaFileInvoiceDollarSolid, LiaUsersSolid } from "react-icons/lia";
 import { FaFileInvoiceDollar, FaProductHunt } from "react-icons/fa6";
@@ -64,14 +66,16 @@ const Dashboard = () => {
   const [accessToken, setAccessToken] = useState("");
   const [expire, setExpire] = useState(false);
 
-  ChartJS.register(
-    BarElement,
-    CategoryScale,
-    LinearScale,
-    Title,
-    Tooltip,
-    Legend
-  );
+  
+  // ChartJS.register(
+  //   BarElement,
+  //   CategoryScale,
+  //   LinearScale,
+  //   Title,
+  //   Tooltip,
+  //   Legend,
+  //   PointElement,
+  // );
 
   const labels = [
     "January",
@@ -113,7 +117,7 @@ const Dashboard = () => {
         return event.toDateString();
       },
       sortable: true,
-      width: "15%",
+      width: "25%",
     },
     {
       name: "TYPE",
@@ -125,7 +129,7 @@ const Dashboard = () => {
       name: "CUSTOMER/SUPPLIER",
       selector: (row) => <div className="font-bold">{row.name}</div>,
       sortable: true,
-      width: "20%",
+      width: "25%",
     },
     {
       name: "AMOUNT",
@@ -139,7 +143,7 @@ const Dashboard = () => {
         </div>
       ),
       sortable: true,
-      width: "10%",
+      width: "15%",
     },
     {
       name: "DETAIL",
@@ -360,8 +364,7 @@ const Dashboard = () => {
   return (
     <>
       {expire && redirect("/")}
-      {/* <div className="grid grid-cols-1 overflow-x-auto"> */}
-      {/* <div className="flex flex-col w-full items-center justify-center  m-2 md:m-0 lg:m-0"> */}
+
       <div className="container">
         <div>
           <h1 className="font-bold">Dashboard</h1>
@@ -369,10 +372,10 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-4 gap-4 pt-5">
           <div
             onClick={() => router.push("/dashboard/customer")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-cyan-500 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-cyan-500 cursor-pointer"
           >
             <div className="font-bold">
-              <PiUsersThree size={60} />
+              <PiUsersThree size={50} />
             </div>
             <div>
               Customers{" "}
@@ -387,10 +390,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/supplier")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-stone-400 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-stone-400 cursor-pointer"
           >
             <div className="font-bold">
-              <LiaUsersSolid size={60} />
+              <LiaUsersSolid size={50} />
             </div>
             <div>
               Supplier{" "}
@@ -405,10 +408,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/product")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-red-600 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-red-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FaProductHunt size={60} />
+              <FaProductHunt size={50} />
             </div>
             <div>
               Products{" "}
@@ -423,10 +426,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/stock")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-slate-500 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-slate-500 cursor-pointer"
           >
             <div className="font-bold">
-              <MdInventory size={60} />
+              <MdInventory size={50} />
             </div>
             <div>
               Stock{" "}
@@ -441,10 +444,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/department")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-green-600 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-green-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FcDepartment size={60} />
+              <FcDepartment size={50} />
             </div>
             <div>
               Departments{" "}
@@ -459,10 +462,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/employee")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-blue-600 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-blue-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FiUsers size={60} />
+              <FiUsers size={50} />
             </div>
             <div>
               Employees{" "}
@@ -477,10 +480,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/sale")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-fuchsia-600 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-fuchsia-600 cursor-pointer"
           >
             <div className="font-bold">
-              <FaFileInvoiceDollar size={60} />
+              <FaFileInvoiceDollar size={50} />
             </div>
             <div>
               Sale{" "}
@@ -505,10 +508,10 @@ const Dashboard = () => {
           </div>
           <div
             onClick={() => router.push("/dashboard/purchase")}
-            className="flex flex-col justify-center items-center w-[300px] h-64 border rounded-3xl text-xl font-bold text-white bg-orange-600 cursor-pointer"
+            className="flex flex-col justify-center items-center w-[350px] h-48 text-lg font-bold text-white bg-orange-600 cursor-pointer"
           >
             <div className="font-bold">
-              <LiaFileInvoiceDollarSolid size={60} />
+              <LiaFileInvoiceDollarSolid size={50} />
             </div>
             <div>
               Purchase{" "}
@@ -538,7 +541,7 @@ const Dashboard = () => {
         <br />
         {monthWiseTotalSale.length > 0 ? (
           <div className="grid grid-cols-1 m-auto p-4 border rounded-lg bg-white mb-6 mt-10 overflow-x-auto">
-            <Bar options={options} data={data} />
+            <Bar options={options} data={data} width="30%" height="10%" />
           </div>
         ) : (
           <span><Loading /></span>

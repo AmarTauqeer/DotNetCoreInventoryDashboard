@@ -258,6 +258,7 @@ const AddEditProduct = () => {
                   })}
                 />
               </div>
+              <span className="col-span-1 font-semibold">&nbsp;</span>
               <div className="col-span-2 mt-6 flex items-center justify-end gap-x-4">
                 <button
                   onClick={handleSubmit(onSubmit)}

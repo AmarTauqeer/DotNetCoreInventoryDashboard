@@ -217,7 +217,7 @@ const AddEditCustomer = () => {
               </div>
 
               <span className="col-span-1 font-semibold">Address</span>
-              <div className="col-span-9">
+              <div className="col-span-4 md:col-span-9">
                 <input
                   type="text"
                   autoComplete="address"
